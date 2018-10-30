@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="100dp"
+    android:gravity="bottom"
+    android:orientation="vertical"
+        >
+
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Item:"
+
+             />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/recycleType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Recycle Type: "
+            />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/recycleBin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Bin"
+           />
+
+    </LinearLayout>
