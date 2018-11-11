@@ -3,15 +3,15 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.bigfoot.bigfoot"
-        minSdkVersion 26
+        applicationId "com.example.thomas.bigfoot2"
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags "-fexceptions"
+                cppFlags ""
             }
         }
     }
@@ -35,4 +35,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation (group: 'me.dm7.barcodescanner', name: 'zbar', version: '1.8.4'){
+        exclude module: 'support-v4'
+    }
+
+
 }
