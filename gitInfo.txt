@@ -1,0 +1,23 @@
+Cache's Git notes
+(if they are wrong then blame Greg the thicc guy who sits by me in class)
+
+git remote add origin and then url
+id you dont want to push one file 
+you would do git reset then the file name then git status again
+
+need a git ignore
+
+creating a new branch:
+-git checkout -b 'name'
+-git branch
+-git push origin branch name
+gotta delete the branch on the computer
+-git checkout master
+-git branch -D name
+-git pull origin master
+
+general git push:
+-git add .
+-git commit -m "Message"
+-git push
+you can use git status after git add . to check what is being added

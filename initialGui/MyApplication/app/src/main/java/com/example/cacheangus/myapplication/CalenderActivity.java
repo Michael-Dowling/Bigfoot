@@ -24,7 +24,7 @@ public class CalenderActivity extends MainActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CalenderActivity.this, CameraActivity.class);
+                Intent i = new Intent(CalenderActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
