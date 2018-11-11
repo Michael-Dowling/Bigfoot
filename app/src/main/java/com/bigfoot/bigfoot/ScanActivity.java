@@ -60,7 +60,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
             }
             //Log.v("matchCount", String.valueOf(matchCount));
             if (matchCount >1){
-                MainActivity.tvresult.setText(result.getContents());
+                gotBarcode(result.getContents());
                 onBackPressed();
             }
 
@@ -72,5 +72,8 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
+    }
+    public void gotBarcode(String barcode){
+        MainActivity.tvresult.setText(barcode);
     }
 }
