@@ -11,7 +11,7 @@ Search::Search(unsigned long long int UPCcode){
 std::string Search::searchByUPC(){
     std::string message;
     if(this->UPCcode == 102424){
-        message = "Recycle this in the blue bin!"
+        message = "Recycle this in the blue bin!";
         return message;
 
     }
