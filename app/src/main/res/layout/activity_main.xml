@@ -12,6 +12,12 @@
         android:id="@+id/btn"
         android:text="Scan Barcode or QR code" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendarBtn"
+        android:text="Recycle Calendar" />
+
     <TextView
         android:id="@+id/tvresult"
         android:layout_width="match_parent"
