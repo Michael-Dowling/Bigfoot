@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Bigfoot</string>
+    <string name="weekday_display">On Tuesday after 6PM put out:</string>
+    <string name="weekday">DemoUI</string>
+    <string name="bBin">Blue Bin</string>
+    <string name="gBin">Green Bin</string>
+    <string name="garb">Garbage Bag</string>
+</resources>
