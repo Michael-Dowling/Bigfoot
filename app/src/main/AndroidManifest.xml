@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ScanActivity" />
-        <activity android:name="com.example.thomas.bigfoot2.CalendarActivity"></activity>
+        <activity android:name=".CalendarActivity"></activity>
     </application>
 
 </manifest>
