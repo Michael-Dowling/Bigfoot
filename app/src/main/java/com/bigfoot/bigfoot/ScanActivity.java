@@ -1,5 +1,8 @@
 package com.bigfoot.bigfoot;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.nfc.Tag;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +19,9 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
     @Override
     public void onCreate(Bundle state) {
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            android.support.v4.app.ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 1);
+        }
         for (int i = 0; i< 100; i++){
             listOfInts[i] = Long.valueOf(0);
         }
