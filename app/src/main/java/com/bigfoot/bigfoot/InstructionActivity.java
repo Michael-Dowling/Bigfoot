@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class InstructionActivity extends AppCompatActivity{
 
@@ -15,6 +16,8 @@ public class InstructionActivity extends AppCompatActivity{
         setContentView(R.layout.activity_instructions);
 
         Button button = (Button) findViewById(R.id.nextButton);
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,4 +27,6 @@ public class InstructionActivity extends AppCompatActivity{
             }
         });
     }
+
+
 }
