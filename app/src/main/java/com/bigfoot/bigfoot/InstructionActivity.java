@@ -21,7 +21,7 @@ public class InstructionActivity extends AppCompatActivity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(InstructionActivity.this, ScanActivity.class);
+                Intent i = new Intent(InstructionActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
