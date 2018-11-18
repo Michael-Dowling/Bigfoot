@@ -80,6 +80,6 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         mScannerView.resumeCameraPreview(this);
     }
     public void gotBarcode(String barcode){
-        MainActivity.tvresult.setText(barcode);
+       // MainActivity.tvresult.setText("barcode");
     }
 }
