@@ -1,32 +1,32 @@
 package com.bigfoot.bigfoot;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.ImageButton;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
-public class CalendarActivity extends AppCompatActivity {
+public class ResultsActivity extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.activity_results);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //back button, worst case we can go
+        //back button
         ImageButton fab = (ImageButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CalendarActivity.this, ScanActivity.class);
+                Intent i = new Intent(ResultsActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
+
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CalendarActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()){
             case (R.id.action_schedule):
-                Intent i = new Intent(this, CalendarActivity.class);
+                Intent i = new Intent(ResultsActivity.this, CalendarActivity.class);
                 startActivity(i);
                 return true;
             case R.id.action_facts:
@@ -55,5 +55,4 @@ public class CalendarActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
