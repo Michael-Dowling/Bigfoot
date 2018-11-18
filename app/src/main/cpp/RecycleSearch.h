@@ -1,6 +1,3 @@
-//
-// Created by koppe on 2018-11-13.
-//
 
 #include <string>
 
@@ -9,7 +6,23 @@
 
 #endif //ALBERTREPO_RECYCLESEARCH_H
 
-class Search{
+class recycleItem {
+public:
+    //constructor
+    recycleItem(std::string name, std::string binType, unsigned long long int upc, std::string description);
+    //getters
+    std::string getName();
+    std::string getBinType();
+    unsigned long long int getUpc();
+    std::string getDescription();
+private:
+    std::string name;
+    std::string binType;
+    unsigned long long int upc;
+    std::string description;
+};
+
+class Search {
 public:
     Search(unsigned long long int);
     std::string searchByUPC();
