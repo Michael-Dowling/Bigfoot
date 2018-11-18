@@ -21,11 +21,3 @@ private:
     unsigned long long int upc;
     std::string description;
 };
-
-class Search {
-public:
-    Search(unsigned long long int);
-    std::string searchByUPC();
-private:
-    unsigned long long int UPCcode;
-};

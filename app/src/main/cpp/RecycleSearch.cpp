@@ -26,23 +26,10 @@ std::string RecycleItem::getDescription(){
     return description;
 }
 
-Search::Search(unsigned long long int UPCcode) {
-    this->UPCcode = UPCcode;
-}
-
-std::string Search::searchByUPC() {
-    std::string message;
-    if (this->UPCcode == 5557742075) {
-        message = "This is a gatorade bottle. It goes in the blue bin, leave the cap on!";
-        return message;
-    }
-}
-
-//int main(){
-//    Search test1(102424);
-//    test1.searchByUPC();
-//   return 0;
-//}
+// Name: "Gatorade Bottle"
+// UPC: 55577420751
+// binType: "Blue Bin"
+// Description: "All parts can go in the blue bin, make sure to leave the cap on!
 
 
 
