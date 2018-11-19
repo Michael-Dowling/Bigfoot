@@ -2,10 +2,22 @@
 #include <string>
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_bigfoot_bigfoot_MainActivity_stringFromJNI(
+Java_com_bigfoot_bigfoot_MainActivity_getBinType(
         JNIEnv *env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
+        jobject /* this */, jlong UPC) {
+
+    std::string binType;
+    unsigned long long int gatorade = 55577420751;
+
+    if(UPC == gatorade){
+        binType = "Blue Bin";
+    }
+    if(UPC == 2600136000007){
+        binType = "Garbage";
+    }
+    else {
+        binType = "Could not find";
+    }
+    return env->NewStringUTF(binType.c_str());
 }
 
