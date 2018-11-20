@@ -26,10 +26,10 @@ std::string RecycleItem::getDescription(){
     return description;
 }
 
- getBinTypeFromC(){
+ //getBinTypeFromC(){
 
-    return 0;
-}
+//    return 0;
+//}
 
 // Name: "Gatorade Bottle"
 // UPC: 55577420751
