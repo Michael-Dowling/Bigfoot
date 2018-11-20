@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.ImageButton;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -23,10 +24,12 @@ public class CalendarActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CalendarActivity.this, ScanActivity.class);
-                startActivity(i);
-            }
-        });
+                    Intent i = new Intent(CalendarActivity.this, MainActivity.class);
+                    startActivity(i);
+                }
+            });
+
+
     }
 
     @Override
