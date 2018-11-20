@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class InstructionActivity extends AppCompatActivity{
+    static{
+        System.loadLibrary("instr-lib");
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +24,9 @@ public class InstructionActivity extends AppCompatActivity{
         TextView instr3 = (TextView) findViewById(R.id.inst3);
         TextView instr4 = (TextView) findViewById(R.id.inst4);
 
+        String inst = getInstr();
 
+        instr1.setText(inst[1]);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,5 +38,6 @@ public class InstructionActivity extends AppCompatActivity{
         });
     }
 
-
+    public native String getInstr();
 }
+
