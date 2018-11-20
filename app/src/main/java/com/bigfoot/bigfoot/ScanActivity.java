@@ -15,6 +15,9 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     private Long[] listOfInts = new Long[100];
     private int results = 0;
 
+    static{
+        System.loadLibrary("native-lib");
+    }
     //camera permission is needed.
 
     @Override
@@ -80,6 +83,10 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         mScannerView.resumeCameraPreview(this);
     }
     public void gotBarcode(String barcode){
-        MainActivity.tvresult.setText(barcode);
+        long code = Long.parseLong(barcode);
+        String type = getBinType(code);
+        MainActivity.tvresult.setText(type);
     }
+
+    public native String getBinType(long UPC);
 }
