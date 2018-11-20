@@ -16,6 +16,11 @@ public class InstructionActivity extends AppCompatActivity{
         setContentView(R.layout.activity_instructions);
 
         Button button = (Button) findViewById(R.id.nextButton);
+        TextView instr1 = (TextView) findViewById(R.id.inst1);
+        TextView instr2 = (TextView) findViewById(R.id.inst2);
+        TextView instr3 = (TextView) findViewById(R.id.inst3);
+        TextView instr4 = (TextView) findViewById(R.id.inst4);
+
 
 
         button.setOnClickListener(new View.OnClickListener() {

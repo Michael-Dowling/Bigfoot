@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.ImageButton;
 
 public class ResultsActivity extends MainActivity {
@@ -18,7 +19,8 @@ public class ResultsActivity extends MainActivity {
         setSupportActionBar(toolbar);
 
         //back button
-        ImageButton fab = (ImageButton) findViewById(R.id.fab);
+
+        ImageButton bab = (ImageButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
