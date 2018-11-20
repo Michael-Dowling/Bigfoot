@@ -7,15 +7,17 @@ Java_com_bigfoot_bigfoot_ScanActivity_getBinType(
         jobject /* this */, jlong UPC) {
 
     //you caught us, the following is some ugly code that we did not want to write...
-    //Issues setting up the database forced us to resort to a series of if statements...
+    //Issues setting up the database forced us to resort to a series of if statements as a demo...
     //If this project was carried forward we probably would not have used c++ and we would've moved
-    //all of this code to a database. It should be noted that we did write the code for the database
+    //all of this code to a database, and would have it linked to your location.
+    // It should be noted that we did write the code for the database
     //we just couldn't get it working. Anyways, enjoy our if statements!
     std::string binType;
     long long int upc = (long long int) UPC;
     long long int gatorade = 55577420751;
     long long int fiestaSaladFromArc = 2500136000007;
     long long int natureValleyGranolaBar = 6563350226;
+    long long int nesteaCan = 8390937;
 
     if(upc == gatorade){
         binType = "Blue Bin";
@@ -25,6 +27,9 @@ Java_com_bigfoot_bigfoot_ScanActivity_getBinType(
     }
     else if(upc == natureValleyGranolaBar){
         binType = "Garbage;";
+    }
+    else if(upc == nesteaCan){
+        binType = "Blue Bin";
     }
     else {
         binType = std::to_string(UPC);
@@ -46,8 +51,6 @@ Java_com_bigfoot_bigfoot_ScanActivity_getBinType(
     long long int gatorade = 55577420751;
     long long int fiestaSaladFromArc = 2500136000007;
     long long int natureValleyGranolaBar = 6563350226;
-
-
 
     if(upc == gatorade){
         binType = "Blue Bin";
