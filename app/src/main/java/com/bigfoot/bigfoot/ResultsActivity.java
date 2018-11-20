@@ -7,29 +7,45 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.widget.ImageButton;
+import android.widget.Button;
 
 public class ResultsActivity extends MainActivity {
 
+    Button imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__results);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         //back button
+        imageButton = (Button) findViewById(R.id.fab);
 
-        ImageButton bab = (ImageButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ResultsActivity.this, MainActivity.class);
+                Intent i = new Intent(ResultsActivity.this, ScanActivity.class);
                 startActivity(i);
             }
         });
 
+        //addListenerOnButton();
+
     }
+
+    /*public void addListenerOnButton() {
+        imageButton = (ImageButton) findViewById(R.id.fab);
+
+        imageButton.setOnClickListener(new View. {
+            @Override
+            public void onClick(View view){
+
+                Intent i = new Intent(ResultsActivity.this, ScanActivity.class);
+
+            }
+        });
+    }*/
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

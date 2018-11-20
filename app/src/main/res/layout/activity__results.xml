@@ -10,29 +10,16 @@
     tools:context=".ResultsActivity"
     >
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#23af23"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </android.support.design.widget.AppBarLayout>
-
-    <ImageButton
-        android:id="@+id/fab"
-        android:layout_width="5dp"
-        android:layout_height="5dp"
-        android:layout_alignParentStart="true"
+    <Button
         app:backgroundTint="#23af23"
-        android:src="@drawable/backarrow"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"/>
+        android:id="@+id/fab"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:text="Scan"
+        />
 
 
     <ImageView
@@ -49,7 +36,7 @@
         android:layout_width="200dp"
         android:layout_height="240dp"
         android:layout_below="@id/logo"
-
+        tools:ignore="ContentDescription"
         android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="91dp"
