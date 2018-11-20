@@ -2,6 +2,7 @@ package com.bigfoot.bigfoot;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
@@ -10,26 +11,32 @@ import com.jcraft.jsch.Session;
 import android.widget.Button;
 import android.widget.TextView;
 import java.sql.*;
+import java.sql.DriverManager;
+import com.mysql.jdbc.Driver;
 
 
 public class TestDbActivity extends AppCompatActivity {
+
+    public static TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_db);
-
-        TextView textView = findViewById(R.id.displayText);
+        textView = findViewById(R.id.displayText);
+        textView.setText("CHANGE");
 
         Button connectBtn = findViewById(R.id.connectButton);
         connectBtn.setOnClickListener(new View.OnClickListener() {
             // @SuppressLint("StaticFieldLeak")
             @Override
             public void onClick(View v) {
+                textView.setText("push the BUTTON");
                 new AsyncTask<Integer, Void, Void>() {
                     @Override
                     protected Void doInBackground(Integer... params) {
                         try {
                             executeSQLcmds();
+                           // textView.setText("we did it");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -77,16 +84,19 @@ public class TestDbActivity extends AppCompatActivity {
         System.out.println("An example for updating a Row from Mysql Database!");
         Connection con = null;
         String driver = "com.mysql.jdbc.Driver";
-        String rhost = "albert.caslab.queensu.ca";
-        int lport = 3306;
+        String rhost = "130.15.15.4";
+
+        int lport = 22;
         String url = "jdbc:mysql://" + rhost + ":" + lport + "/";
         String db = "bigfoot";
         String dbUser = "biguser";
         String dbPasswd = "bigfoot";
-        TextView textView = findViewById(R.id.displayText);
+        textView.setText("set variables");
+
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url + db, dbUser, dbPasswd);
+            textView.setText("connected");
             try {
                 Statement stmt = con.createStatement();
                 String sql = "Select * From BFItem";
@@ -98,12 +108,13 @@ public class TestDbActivity extends AppCompatActivity {
                     barcodes += barcodeNumber;
                     barcodes += " ";
                 }
-                textView.setText(barcodes);
+                //textView.setText(barcodes);
             } catch (SQLException s) {
                 System.out.println("SQL statement is not executed!");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            textView.setText(e.toString());
+            Log.e("woo", e.toString());
         }
     }
 }
