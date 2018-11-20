@@ -75,7 +75,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
         }
         else{
-            MainActivity.tvresult.setText("error");
+            MainActivity.tvresult.setText("Error reading, scan again.");
             onBackPressed();
         }
 
@@ -85,9 +85,10 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     public void gotBarcode(String barcode){
         long code = Long.parseLong(barcode);
         String type = getBinTypeFromUpc(code);
-        MainActivity.tvresult.setText(getBinTypeFromName("gatorade"));
-        MainActivity.tvresult.setText(getNameFromUpc(code));
-        MainActivity.tvresult.setText(getRecycleTypeFromUpc(code));
+        ResultsActivity.binType.setText(getBinTypeFromName("gatorade"));
+        ResultsActivity.item.setText(getNameFromUpc(code));
+        ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
+        ResultsActivity.binType.setText(type);
 
     }
 

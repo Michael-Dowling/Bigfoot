@@ -8,9 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ResultsActivity extends MainActivity {
-
+    public static TextView recycleType;
+    public static TextView binType;
+    public static TextView item;
     Button imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +32,12 @@ public class ResultsActivity extends MainActivity {
             }
         });
 
-        //addListenerOnButton();
+        //setting the types
+        item = findViewById(R.id.itemName);
+        recycleType = findViewById(R.id.recycleType);
+        binType = findViewById(R.id.recycleBin);
 
     }
-
-    /*public void addListenerOnButton() {
-        imageButton = (ImageButton) findViewById(R.id.fab);
-
-        imageButton.setOnClickListener(new View. {
-            @Override
-            public void onClick(View view){
-
-                Intent i = new Intent(ResultsActivity.this, ScanActivity.class);
-
-            }
-        });
-    }*/
 
 
     @Override
@@ -73,4 +66,5 @@ public class ResultsActivity extends MainActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
