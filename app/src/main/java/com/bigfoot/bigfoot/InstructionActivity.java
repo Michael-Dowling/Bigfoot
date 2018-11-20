@@ -21,7 +21,12 @@ public class InstructionActivity extends AppCompatActivity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(InstructionActivity.this, MainActivity.class);
+                //original code
+                //Intent i = new Intent(InstructionActivity.this, MainActivity.class);
+
+                //modded for testing database switch these two lines
+                Intent i = new Intent(InstructionActivity.this, TestDbActivity.class);
+
                 startActivity(i);
                 finish();
             }
