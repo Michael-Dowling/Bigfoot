@@ -75,7 +75,7 @@ public class TestDbActivity extends AppCompatActivity {
         String[] result = new String[jsonArray.length()];
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject obj = jsonArray.getJSONObject(i);
-            result[i] = obj.getString("itemName") + " " + obj.getString("barcodeNumber");
+            result[i] = obj.getString("pictureAddress") + " " + obj.getString("barcodeNumber");
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, result);
         listView.setAdapter(arrayAdapter);
