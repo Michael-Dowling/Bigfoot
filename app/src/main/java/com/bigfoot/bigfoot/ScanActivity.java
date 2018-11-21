@@ -70,6 +70,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
             //Log.v("matchCount", String.valueOf(matchCount));
             if (matchCount >1){
                 gotBarcode(result.getContents());
+
                 onBackPressed();
             }
 
