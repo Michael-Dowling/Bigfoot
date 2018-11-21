@@ -20,13 +20,13 @@ add_library( # Sets the name of the library.
         src/main/cpp/native-lib.cpp)
 
 add_library( # Sets the name of the library.
-        GotBarcode
+        GetBarcode
 
         # Sets the library as a shared library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        src/main/cpp/GotBarcode.cpp)
+        src/main/cpp/GetBarcode.cpp)
 
 add_library( # Sets the name of the library.
         RollingArray
@@ -61,7 +61,7 @@ target_link_libraries( # Specifies the target library.
         ${log-lib})
 
 target_link_libraries( # Specifies the target library.
-        GotBarcode
+        GetBarcode
 
         # Links the target library to the log library
         # included in the NDK.

@@ -14,9 +14,13 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     private ZBarScannerView mScannerView;
     private Long[] listOfInts = new Long[100];
     private int results = 0;
+    private GetBarcode gb;
 
     static{
+        //load native c++ code
         System.loadLibrary("native-lib");
+        System.loadLibrary("GetBarcode");
+        System.loadLibrary("RollingArray");
     }
     //camera permission is needed.
 
@@ -25,6 +29,8 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             android.support.v4.app.ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 1);
         }
+        gb = new GetBarcode();
+
         for (int i = 0; i< 100; i++){
             listOfInts[i] = Long.valueOf(0);
         }
@@ -52,11 +58,18 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         // Do something with the result here
         Log.v("kkkk", result.getContents()); // Prints scan results
         Log.v("uuuu", result.getBarcodeFormat().getName()); // Prints the scan format (qrcode, pdf417 etc.)
+
+        long upc = Long.parseLong(result.getContents());    //parse long upc from string results
+
+        //call native c++ code to determine if there is a barcode match
+        if(gb.barcodeMatch(upc)){
+            gotBarcode(upc);    //
+            onBackPressed();
+        }
+        /*
         results = results +1;
         if (results<100){
             listOfInts[results] = Long.parseLong(result.getContents());
-            //Log.v("hello", listOfInts[results].toString());
-            // Log.v("hello", String.valueOf(ContinueScanning));
 
             int matchCount = 0;
             for (int j=0; j < results; j++){
@@ -78,16 +91,15 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
             MainActivity.tvresult.setText("Error reading, scan again.");
             onBackPressed();
         }
-
+        */
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
     }
-    public void gotBarcode(String barcode){
-        long code = Long.parseLong(barcode);
-        String type = getBinTypeFromUpc(code);
+    public void gotBarcode(long barcode){
+        String type = getBinTypeFromUpc(barcode);
         ResultsActivity.binType.setText(getBinTypeFromName("gatorade"));
-        ResultsActivity.item.setText(getNameFromUpc(code));
-        ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
+        ResultsActivity.item.setText(getNameFromUpc(barcode));
+        ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(barcode));
         ResultsActivity.binType.setText(type);
 
     }
