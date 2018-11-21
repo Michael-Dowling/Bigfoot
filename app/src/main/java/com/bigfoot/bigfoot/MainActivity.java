@@ -86,6 +86,6 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
 
-    public native String getBinTypeFromName(String UPC);
+    public native String getBinTypeFromName(String name);
 
     }
