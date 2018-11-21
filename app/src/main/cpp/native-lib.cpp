@@ -100,7 +100,7 @@ Java_com_bigfoot_bigfoot_ScanActivity_getRecycleTypeFromUpc(
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_bigfoot_bigfoot_ScanActivity_getBinTypeFromName(
+Java_com_bigfoot_bigfoot_MainActivity_getBinTypeFromName(
         JNIEnv *env,
         jobject , jstring name) {
 

@@ -84,16 +84,16 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     }
     public void gotBarcode(String barcode){
         long code = Long.parseLong(barcode);
-        String type = getBinTypeFromUpc(code);
-        ResultsActivity.binType.setText(getBinTypeFromName("gatorade"));
+        //String type = getBinTypeFromUpc(code);
+        ResultsActivity.binType.setText(getBinTypeFromUpc(code));
         ResultsActivity.item.setText(getNameFromUpc(code));
         ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
-        ResultsActivity.binType.setText(type);
+        //ResultsActivity.binType.setText(type);
 
     }
 
     public native String getBinTypeFromUpc(long UPC);
     public native String getNameFromUpc(long UPC);
     public native String getRecycleTypeFromUpc(long UPC);
-    public native String getBinTypeFromName(String UPC);
+    //public native String getBinTypeFromName(String UPC);
 }
