@@ -12,8 +12,6 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 public class ScanActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
-    private Long[] listOfInts = new Long[100];
-    private int results = 0;
     private GetBarcode gb;
 
     static{
@@ -30,11 +28,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
             android.support.v4.app.ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 1);
         }
         gb = new GetBarcode();
-        /*
-        for (int i = 0; i< 100; i++){
-            listOfInts[i] = Long.valueOf(0);
-        } */
-        results = 0;
+
         super.onCreate(state);
         mScannerView = new ZBarScannerView(this);    // Programmatically initialize the scanner view
         setContentView(mScannerView);                // Set the scanner view as the content view
@@ -67,34 +61,6 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
             onBackPressed();
         }
 
-        /*
-        results = results +1;
-        if (results<100){
-            listOfInts[results] = Long.parseLong(result.getContents());
-            //Log.v("hello", listOfInts[results].toString());
-            // Log.v("hello", String.valueOf(ContinueScanning));
-
-            int matchCount = 0;
-            for (int j=0; j < results; j++){
-                //Log.v("compare", String.valueOf(listOfInts[j].equals(listOfInts[results])));
-                // Log.v("compare", String.valueOf(listOfInts[j]) + String.valueOf(listOfInts[results]));
-
-                if (listOfInts[j].equals(listOfInts[results])){
-                    matchCount = matchCount +1;
-                }
-            }
-            //Log.v("matchCount", String.valueOf(matchCount));
-            if (matchCount >1){
-                gotBarcode(result.getContents());
-                onBackPressed();
-            }
-
-        }
-        else{
-            MainActivity.tvresult.setText("Error reading, scan again.");
-            onBackPressed();
-        }
-        */
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
     }
