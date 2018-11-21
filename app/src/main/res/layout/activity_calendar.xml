@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffedd1"
     tools:context=".CalendarActivity"
-    >
+    tools:layout_editor_absoluteY="81dp">
 
 
     <Button
@@ -14,84 +14,116 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        app:backgroundTint="#23af23"
-        android:text="Scan"
 
-        />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Scan"
+        app:backgroundTint="#23af23"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_2"
+        app:layout_constraintEnd_toStartOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="61dp"
-        android:layout_height="51dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/_recyclelogo"
-        tools:ignore="ContentDescription"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_2"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/fab"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:srcCompat="@drawable/_recyclelogo"
+        tools:ignore="ContentDescription" />
 
 
     <TextView
         android:id="@+id/text_view_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        android:layout_marginTop="10dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/weekday_display"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
-        app:layout_constraintVertical_bias="2"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="94dp" />
+        app:layout_constraintBottom_toTopOf="@+id/text_view_3"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/fab" />
 
     <TextView
         android:id="@+id/text_view_3"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
+        android:gravity="center"
+        android:text="@string/bBin"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_2"
-        android:text="@string/bBin" />
+        app:layout_constraintBottom_toTopOf="@+id/text_view_4"
+        app:layout_constraintStart_toStartOf="@+id/text_view_2"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_2" />
 
     <TextView
         android:id="@+id/text_view_4"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
+        android:gravity="center"
+        android:text="@string/gBin"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_3"
-        android:text="@string/gBin" />
+        app:layout_constraintBottom_toTopOf="@+id/text_view_5"
+        app:layout_constraintStart_toStartOf="@+id/text_view_3"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_3" />
 
     <TextView
         android:id="@+id/text_view_5"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
         android:ems="10"
+        android:gravity="center"
+        android:text="@string/garb"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_4"
-        android:text="@string/garb" />
+        app:layout_constraintBottom_toTopOf="@+id/compactcalendar_view"
+        app:layout_constraintStart_toStartOf="@+id/text_view_4"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_4" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="203dp"
-        android:layout_marginTop="8dp"
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactcalendar_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:compactCalendarBackgroundColor="#ffedd1"
+        app:compactCalendarCurrentDayBackgroundColor="#00FFFF"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#008080"
+        app:compactCalendarMultiEventIndicatorColor="#fff"
+        app:compactCalendarTargetHeight="300dp"
+        app:compactCalendarTextColor="#000000"
+        app:compactCalendarTextSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_5" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="267dp"
+        android:text="Push"
+        app:layout_constraintBottom_toTopOf="@+id/compactcalendar_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

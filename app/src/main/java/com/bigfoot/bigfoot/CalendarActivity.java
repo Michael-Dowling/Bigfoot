@@ -1,6 +1,12 @@
 package com.bigfoot.bigfoot;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +18,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class CalendarActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,13 @@ public class CalendarActivity extends AppCompatActivity {
                     startActivity(i);
                 }
             });
+        createNotificationChannel();
+        Button btn = findViewById(R.id.button2);
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                callNotification("Garbage Pikcup Tommorow","Blue Bin");
+            }
+        });
 
 
     }
@@ -54,9 +66,28 @@ public class CalendarActivity extends AppCompatActivity {
         }
 
         //noinspection SimplifiableIfStatement
-
-
         return super.onOptionsItemSelected(item);
+    }
+
+    public void createNotificationChannel() {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel notificationChannel = new NotificationChannel("channel1", "Channel 1",NotificationManager.IMPORTANCE_HIGH);
+        notificationManager.createNotificationChannel(notificationChannel);
+    }
+
+    public void callNotification(String title, String text) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"channel1") //CHANNEL_ID
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle(title)
+                .setContentText(text)
+                .setDefaults(Notification.DEFAULT_ALL);
+        //.setPriority(Notification.PRIORITY_HIGH);
+
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(0, builder.build());
     }
 
 }
