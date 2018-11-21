@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -31,6 +32,7 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
 
 
         //back button, worst case we can go
@@ -47,21 +49,21 @@ public class CalendarActivity extends AppCompatActivity {
 
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                callNotification("Garbage Pikcup Tommorow","Blue Bin");
+                callNotification("Garbage Pick Tuesday","Blue & Black Bin");
             }
         });
 
-        TextView text_view_2 = findViewById(R.id.text_view_2);
+
         final CompactCalendarView compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         compactCalendarView.setFirstDayOfWeek(Calendar.SUNDAY);
         Event evGarbage;
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 6; i++)
         {
             evGarbage = new Event(Color.BLACK,1541480400000L+(i*604800010));
             compactCalendarView.addEvent(evGarbage);
             if(i%2 == 0)
             {
-                evGarbage = new Event(Color.GRAY,1541480400000L+(i*604800010));
+                evGarbage = new Event(Color.GREEN,1541480400000L+(i*604800010));
                 compactCalendarView.addEvent(evGarbage);
             }
             else
@@ -70,20 +72,29 @@ public class CalendarActivity extends AppCompatActivity {
                 compactCalendarView.addEvent(evGarbage);
             }
         }
-
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+            ImageView imgViewGrey = (ImageView)findViewById(R.id.imageView10);
+            ImageView imgViewBlue = (ImageView)findViewById(R.id.imageView8);
             @Override
             public void onDayClick(Date dateClicked) {
                 List<Event> events = compactCalendarView.getEvents(dateClicked);
                 if(!events.isEmpty()) {
                     long timeString = events.get(0).getTimeInMillis() - 1541480400000L;
+
                     if(timeString%1209600020 == 0) {
-                        callNotification("Garbage Pick Tommorow", "Black and Gray Bin");
+                        imgViewGrey.setVisibility(View.VISIBLE);
+                        imgViewBlue.setVisibility(View.INVISIBLE);
                     }
-                    else {
-                        callNotification("Garbage Pick Tommorow", "Black and Blue Bin");
+                    else if (timeString%1209600020 == 604800010) {
+                        imgViewGrey.setVisibility(View.INVISIBLE);
+                        imgViewBlue.setVisibility(View.VISIBLE);
                     }
                     }
+                    else
+                {
+                    imgViewGrey.setVisibility(View.INVISIBLE);
+                    imgViewBlue.setVisibility(View.INVISIBLE);
+                }
                 }
 
             @Override
