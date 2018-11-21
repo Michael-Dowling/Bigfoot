@@ -49,7 +49,7 @@ public class CalendarActivity extends AppCompatActivity {
 
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                callNotification("Garbage Pick Tuesday","Blue & Black Bin");
+                callNotification("Garbage Pick Tuesday","Blue, Green & Black Bin");
             }
         });
 
@@ -59,11 +59,11 @@ public class CalendarActivity extends AppCompatActivity {
         Event evGarbage;
         for(int i = 0; i < 6; i++)
         {
-            evGarbage = new Event(Color.BLACK,1541480400000L+(i*604800010));
+            evGarbage = new Event(Color.GREEN,1541480400000L+(i*604800010));
             compactCalendarView.addEvent(evGarbage);
             if(i%2 == 0)
             {
-                evGarbage = new Event(Color.GREEN,1541480400000L+(i*604800010));
+                evGarbage = new Event(Color.GRAY,1541480400000L+(i*604800010));
                 compactCalendarView.addEvent(evGarbage);
             }
             else
