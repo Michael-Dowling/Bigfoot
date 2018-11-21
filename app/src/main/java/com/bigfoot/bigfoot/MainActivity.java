@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static TextView tvresult;
 
+    static{
+        System.loadLibrary("native-lib");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //CALL C++ CODE TO GET STRING HERE
-                tvresult.setText("HELLOWORLD");
+                //FIX THIS
+                // and also: the results should be posted on the results page!
+
+                //tvresult.setText(getBinTypeFromName(autoCompleteTextView.getText()));
             }
         });
     }
@@ -79,5 +85,6 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
 
+    public native String getBinTypeFromName(String UPC);
 
     }
