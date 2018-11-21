@@ -101,6 +101,7 @@
         android:layout_marginEnd="8dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+
         app:compactCalendarBackgroundColor="#ffedd1"
         app:compactCalendarCurrentDayBackgroundColor="#00FFFF"
         app:compactCalendarCurrentSelectedDayBackgroundColor="#008080"

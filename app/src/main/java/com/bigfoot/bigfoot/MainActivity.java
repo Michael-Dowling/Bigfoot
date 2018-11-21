@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.MenuInflater;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.content.Intent;
 import android.view.View;
@@ -40,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btn = findViewById(R.id.button);
-
+        final AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView)findViewById((R.id.autoCompleteTextView));
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //CALL C++ CODE TO GET STRING HERE
-                tvresult.setText("HELLOWORLD");
+                tvresult.setText(autoCompleteTextView.getText());
             }
         });
     }

@@ -6,16 +6,25 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
+import com.github.sundeepk.compactcalendarview.domain.Event;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 
 public class CalendarActivity extends AppCompatActivity {
     @Override
@@ -35,13 +44,53 @@ public class CalendarActivity extends AppCompatActivity {
             });
         createNotificationChannel();
         Button btn = findViewById(R.id.button2);
+
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 callNotification("Garbage Pikcup Tommorow","Blue Bin");
             }
         });
 
+        TextView text_view_2 = findViewById(R.id.text_view_2);
+        final CompactCalendarView compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
+        compactCalendarView.setFirstDayOfWeek(Calendar.SUNDAY);
+        Event evGarbage;
+        for(int i = 0; i < 4; i++)
+        {
+            evGarbage = new Event(Color.BLACK,1541480400000L+(i*604800010));
+            compactCalendarView.addEvent(evGarbage);
+            if(i%2 == 0)
+            {
+                evGarbage = new Event(Color.GRAY,1541480400000L+(i*604800010));
+                compactCalendarView.addEvent(evGarbage);
+            }
+            else
+            {
+                evGarbage = new Event(Color.BLUE,1541480400000L+(i*604800010));
+                compactCalendarView.addEvent(evGarbage);
+            }
+        }
 
+        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+            @Override
+            public void onDayClick(Date dateClicked) {
+                List<Event> events = compactCalendarView.getEvents(dateClicked);
+                if(!events.isEmpty()) {
+                    long timeString = events.get(0).getTimeInMillis() - 1541480400000L;
+                    if(timeString%1209600020 == 0) {
+                        callNotification("Garbage Pick Tommorow", "Black and Gray Bin");
+                    }
+                    else {
+                        callNotification("Garbage Pick Tommorow", "Black and Blue Bin");
+                    }
+                    }
+                }
+
+            @Override
+            public void onMonthScroll(Date firstDayOfNewMonth) {
+                Log.d("MainActivity", "Month was scrolled to: " + firstDayOfNewMonth);
+            }
+        });
     }
 
     @Override
