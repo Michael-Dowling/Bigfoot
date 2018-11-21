@@ -1,4 +1,5 @@
 package com.bigfoot.bigfoot;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +25,14 @@ public class TestDbActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_db);
 
+        Intent intent = getIntent();
+        String barcodeFrmScan = intent.getStringExtra(ScanActivity.BARCODE_MESSAGE);
+
         String urlReturnItemFrmBC = "http://albert.caslab.queensu.ca/bigfootService.php";
         String bcPHPvarName = "?barcode=";
-        String barcodeFrmScan ="123456789012";
+
+        //hard coded test barcode
+        //String barcodeFrmScan ="123456789012";
 
 
                 listView = (ListView) findViewById(R.id.listView);

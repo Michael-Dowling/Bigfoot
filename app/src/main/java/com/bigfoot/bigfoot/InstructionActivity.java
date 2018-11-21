@@ -22,10 +22,10 @@ public class InstructionActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //original code
-                //Intent i = new Intent(InstructionActivity.this, MainActivity.class);
+                Intent i = new Intent(InstructionActivity.this, MainActivity.class);
 
                 //modded for testing database switch these two lines
-                Intent i = new Intent(InstructionActivity.this, TestDbActivity.class);
+                //Intent i = new Intent(InstructionActivity.this, TestDbActivity.class);
 
                 startActivity(i);
                 finish();

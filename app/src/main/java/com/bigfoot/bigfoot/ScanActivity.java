@@ -1,16 +1,19 @@
 package com.bigfoot.bigfoot;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.nfc.Tag;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+//import android.widget.EditText;
 import android.widget.Toast;
 
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 public class ScanActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler {
+    public static final String BARCODE_MESSAGE = "com.bigfoot.bigfoot.BARCODE";
     private ZBarScannerView mScannerView;
     private Long[] listOfInts = new Long[100];
     private int results = 0;
@@ -87,7 +90,13 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
         String type = getBinType(code);
         MainActivity.tvresult.setText(type);
+
+        //added to test displaying on TESTDB activity
+        Intent intent = new Intent(this, TestDbActivity.class);
+        intent.putExtra(BARCODE_MESSAGE, barcode);
+        startActivity(intent);
     }
+
 
     public native String getBinType(long UPC);
 }
