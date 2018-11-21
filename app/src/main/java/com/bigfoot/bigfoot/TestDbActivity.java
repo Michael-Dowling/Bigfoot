@@ -28,7 +28,7 @@ public class TestDbActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String barcodeFrmScan = intent.getStringExtra(ScanActivity.BARCODE_MESSAGE);
 
-        String urlReturnItemFrmBC = "http://albert.caslab.queensu.ca/bigfootService.php";
+        String urlReturnItemFrmBC = "http://albert.caslab.queensu.ca/getItemByBC.php";
         String bcPHPvarName = "?barcode=";
 
         //hard coded test barcode
