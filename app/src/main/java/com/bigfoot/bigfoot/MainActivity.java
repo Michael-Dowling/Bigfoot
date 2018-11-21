@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static TextView tvresult;
 
+    static{
+        System.loadLibrary("native-lib");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //CALL C++ CODE TO GET STRING HERE
-                tvresult.setText(autoCompleteTextView.getText());
+                String inputText = autoCompleteTextView.getText().toString();
+                tvresult.setText(getBinTypeFromName(inputText));
             }
         });
     }
@@ -81,5 +86,6 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
 
+    public native String getBinTypeFromName(String UPC);
 
     }
