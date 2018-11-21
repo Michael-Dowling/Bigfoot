@@ -24,8 +24,13 @@ public class TestDbActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_db);
 
+        String urlReturnItemFrmBC = "http://albert.caslab.queensu.ca/bigfootService.php";
+        String bcPHPvarName = "?barcode=";
+        String barcodeFrmScan ="123456789012";
+
+
                 listView = (ListView) findViewById(R.id.listView);
-                downloadJSON("http://albert.caslab.queensu.ca/bigfootService.php");
+                downloadJSON(urlReturnItemFrmBC + bcPHPvarName + barcodeFrmScan);
             }
 
     private void downloadJSON(final String urlWebService) {
@@ -75,7 +80,7 @@ public class TestDbActivity extends AppCompatActivity {
         String[] result = new String[jsonArray.length()];
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject obj = jsonArray.getJSONObject(i);
-            result[i] = obj.getString("pictureAddress") + " " + obj.getString("barcodeNumber");
+            result[i] = obj.getString("itemName") + " " + obj.getString("binType") + " " + obj.getString("recyclingType");
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, result);
         listView.setAdapter(arrayAdapter);

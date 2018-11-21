@@ -84,6 +84,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     }
     public void gotBarcode(String barcode){
         long code = Long.parseLong(barcode);
+
         String type = getBinType(code);
         MainActivity.tvresult.setText(type);
     }
