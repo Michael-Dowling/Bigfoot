@@ -84,12 +84,31 @@ public class TestDbActivity extends AppCompatActivity {
     private void loadIntoListView(String json) throws JSONException {
         JSONArray jsonArray = new JSONArray(json);
         String[] result = new String[jsonArray.length()];
+
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject obj = jsonArray.getJSONObject(i);
             result[i] = obj.getString("itemName") + " " + obj.getString("binType") + " " + obj.getString("recyclingType");
         }
+        //dfg
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, result);
         listView.setAdapter(arrayAdapter);
+    }
+
+    private void processResult(String json) throws JSONException {
+        //Strings to pass out to results page
+        String itemNameResult;
+        String recyclingType;
+        String binColour;
+        String description;
+
+        if (json.equals("[]")) {
+            Intent intent = new Intent(this, addItem.class);
+            intent.putExtra(BARCODE_MESSAGE, barcode);
+            startActivity(intent);
+        } else {
+            JSONArray jsonArray = new JSONArray(json);
+            String[] result = new String[jsonArray.length()];
+        }
     }
 //    public void executeSSHcommand() {
 //        String user = "albert";
