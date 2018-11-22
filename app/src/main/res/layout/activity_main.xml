@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:singleLine="true"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#00a6ff"
         app:layout_constraintEnd_toEndOf="parent"
