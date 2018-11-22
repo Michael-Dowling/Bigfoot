@@ -130,8 +130,9 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         //ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
         //ResultsActivity.binType.setText(type);
     }
-        public void getFromSearch(String input){
-        binType = getBinTypeFromName(input);
+        public static void getFromSearch(String input){
+       // binType = getBinTypeFromName(input);
+            binType = "woo";
         description = "descr";
         item = "name";
         recycleType = "something";
@@ -144,5 +145,5 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     public native String getBinTypeFromUpc(long UPC);
     public native String getNameFromUpc(long UPC);
     public native String getRecycleTypeFromUpc(long UPC);
-    public native String getBinTypeFromName(String UPC);
+    public native String getBinTypeFromName(String name);
 }

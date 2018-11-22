@@ -21,8 +21,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static TextView tvresult;
-
 
     static{
         System.loadLibrary("native-lib");
@@ -32,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        tvresult = findViewById(R.id.tvresult);
 
         Button btn = findViewById(R.id.btn);
         // Button calendarBtn = findViewById(R.id.calendarBtn);
