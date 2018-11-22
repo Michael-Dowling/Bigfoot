@@ -22,7 +22,6 @@ public class InstructionActivity extends AppCompatActivity{
         TextView instr4 = (TextView) findViewById(R.id.inst4);
 
 
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
