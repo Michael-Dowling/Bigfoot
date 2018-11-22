@@ -1,5 +1,6 @@
 package com.bigfoot.bigfoot;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.nfc.Tag;
 import android.support.v4.content.ContextCompat;
@@ -12,11 +13,13 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 public class ScanActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
-    private Long[] listOfInts = new Long[100];
-    private int results = 0;
+    private GetBarcode gb;
 
     static{
+        //load native cpp libraries
         System.loadLibrary("native-lib");
+        System.loadLibrary("GetBarcode");
+        System.loadLibrary("RollingArray");
     }
     //camera permission is needed.
 
@@ -25,10 +28,8 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             android.support.v4.app.ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 1);
         }
-        for (int i = 0; i< 100; i++){
-            listOfInts[i] = Long.valueOf(0);
-        }
-        results = 0;
+        gb = new GetBarcode();
+
         super.onCreate(state);
         mScannerView = new ZBarScannerView(this);    // Programmatically initialize the scanner view
         setContentView(mScannerView);                // Set the scanner view as the content view
@@ -52,32 +53,19 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         // Do something with the result here
         Log.v("kkkk", result.getContents()); // Prints scan results
         Log.v("uuuu", result.getBarcodeFormat().getName()); // Prints the scan format (qrcode, pdf417 etc.)
-        results = results +1;
-        if (results<100){
-            listOfInts[results] = Long.parseLong(result.getContents());
-            //Log.v("hello", listOfInts[results].toString());
-            // Log.v("hello", String.valueOf(ContinueScanning));
 
-            int matchCount = 0;
-            for (int j=0; j < results; j++){
-                //Log.v("compare", String.valueOf(listOfInts[j].equals(listOfInts[results])));
-                // Log.v("compare", String.valueOf(listOfInts[j]) + String.valueOf(listOfInts[results]));
+        long upc = Long.parseLong(result.getContents());    //parse long upc from string results
 
-                if (listOfInts[j].equals(listOfInts[results])){
-                    matchCount = matchCount +1;
-                }
-            }
-            //Log.v("matchCount", String.valueOf(matchCount));
-            if (matchCount >1){
-                gotBarcode(result.getContents());
 
-                onBackPressed();
-            }
 
-        }
-        else{
-            MainActivity.tvresult.setText("Error reading, scan again.");
-            onBackPressed();
+
+
+
+        //call native c++ code to determine if there is a barcode match
+        if(gb.barcodeMatch(upc)){
+            gotBarcode(result.getContents());    //got a barcode match, call method to deal with it
+            Intent i = new Intent(this, ResultsActivity.class);
+               startActivity(i);
         }
 
         // If you would like to resume scanning, call this method below:
@@ -85,16 +73,16 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     }
     public void gotBarcode(String barcode){
         long code = Long.parseLong(barcode);
-        String type = getBinTypeFromUpc(code);
-        ResultsActivity.binType.setText(getBinTypeFromName("gatorade"));
+        //String type = getBinTypeFromUpc(code);
+        ResultsActivity.binType.setText(getBinTypeFromUpc(code));
         ResultsActivity.item.setText(getNameFromUpc(code));
         ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
-        ResultsActivity.binType.setText(type);
+        //ResultsActivity.binType.setText(type);
 
     }
 
     public native String getBinTypeFromUpc(long UPC);
     public native String getNameFromUpc(long UPC);
     public native String getRecycleTypeFromUpc(long UPC);
-    public native String getBinTypeFromName(String UPC);
+    //public native String getBinTypeFromName(String UPC);
 }

@@ -10,7 +10,7 @@ Java_com_bigfoot_bigfoot_ScanActivity_getBinTypeFromUpc(
     //Issues setting up the database forced us to resort to a series of if statements as a demo...
     //If this project was carried forward we probably would not have used c++ and we would've moved
     //all of this code to a database, and would have it linked to your location.
-    // It should be noted that we did write the code for the database
+    // It should be noted that we did write the code for the database (see RecycleDB)
     //we just couldn't get it working. Anyways, enjoy our if statements!
     std::string binType;
     long long int upc = (long long int) UPC;
@@ -42,12 +42,6 @@ Java_com_bigfoot_bigfoot_ScanActivity_getNameFromUpc(
         JNIEnv *env,
         jobject /* this */, jlong UPC) {
 
-    //you caught us, the following is some ugly code that we did not want to write...
-    //Issues setting up the database forced us to resort to a series of if statements as a demo...
-    //If this project was carried forward we probably would not have used c++ and we would've moved
-    //all of this code to a database, and would have it linked to your location.
-    // It should be noted that we did write the code for the database
-    //we just couldn't get it working. Anyways, enjoy our if statements!
     std::string name;
     long long int upc = (long long int) UPC;
     long long int gatorade = 55577420751;
@@ -80,12 +74,6 @@ Java_com_bigfoot_bigfoot_ScanActivity_getRecycleTypeFromUpc(
         JNIEnv *env,
         jobject /* this */, jlong UPC) {
 
-    //you caught us, the following is some ugly code that we did not want to write...
-    //Issues setting up the database forced us to resort to a series of if statements as a demo...
-    //If this project was carried forward we probably would not have used c++ and we would've moved
-    //all of this code to a database, and would have it linked to your location.
-    // It should be noted that we did write the code for the database
-    //we just couldn't get it working. Anyways, enjoy our if statements!
     std::string recycleType;
     long long int upc = (long long int) UPC;
     long long int gatorade = 55577420751;
@@ -112,7 +100,7 @@ Java_com_bigfoot_bigfoot_ScanActivity_getRecycleTypeFromUpc(
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_bigfoot_bigfoot_ScanActivity_getBinTypeFromName(
+Java_com_bigfoot_bigfoot_MainActivity_getBinTypeFromName(
         JNIEnv *env,
         jobject , jstring name) {
 
@@ -134,6 +122,9 @@ Java_com_bigfoot_bigfoot_ScanActivity_getBinTypeFromName(
     }
     else if(NAME == "banana") {
         binType = "Compost";
+    }
+    else if(NAME == "My Class Notes"){
+        binType = "Your Class Notes not found";
     }
     else {
         binType = NAME;

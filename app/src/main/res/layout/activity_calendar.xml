@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffedd1"
     tools:context=".CalendarActivity"
-    >
+    tools:layout_editor_absoluteY="81dp">
 
 
     <Button
@@ -14,84 +14,94 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        app:backgroundTint="#23af23"
-        android:text="Scan"
 
-        />
+        android:layout_marginTop="8dp"
+        android:text="Scan"
+        app:backgroundTint="#23af23"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="61dp"
-        android:layout_height="51dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/_recyclelogo"
-        tools:ignore="ContentDescription"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fab"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/fab"
+        app:srcCompat="@drawable/_recyclelogo"
+        tools:ignore="ContentDescription" />
 
 
     <TextView
         android:id="@+id/text_view_2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="29dp"
+        android:gravity="center"
         android:text="@string/weekday_display"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
-        app:layout_constraintVertical_bias="2"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="94dp" />
+        app:layout_constraintTop_toBottomOf="@+id/fab" />
 
-    <TextView
-        android:id="@+id/text_view_3"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:textSize="20sp"
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactcalendar_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:compactCalendarBackgroundColor="#ffedd1"
+        app:compactCalendarCurrentDayBackgroundColor="#00FFFF"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#008080"
+        app:compactCalendarMultiEventIndicatorColor="#fff"
+        app:compactCalendarTargetHeight="300dp"
+        app:compactCalendarTextColor="#000000"
+        app:compactCalendarTextSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Push"
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="@+id/logo" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="22dp"
+        android:visibility="invisible"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_2"
-        android:text="@string/bBin" />
+        app:srcCompat="@drawable/bluegreen" />
 
-    <TextView
-        android:id="@+id/text_view_4"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:visibility="invisible"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_3"
-        android:text="@string/gBin" />
-
-    <TextView
-        android:id="@+id/text_view_5"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_4"
-        android:text="@string/garb" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="203dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_5" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_2"
+        app:srcCompat="@drawable/greygreen" />
 
 </android.support.constraint.ConstraintLayout>
