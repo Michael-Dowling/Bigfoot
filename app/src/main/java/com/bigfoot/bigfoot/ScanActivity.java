@@ -142,7 +142,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         binType = getBinTypeFromUpc(code);
         item = getNameFromUpc(code);
         recycleType = getRecycleTypeFromUpc(code);
-        description = "ddesc";
+        description = "";
 
         downloadJSON(albertServer + phpString + bcPHPvarName + barcode);
 
