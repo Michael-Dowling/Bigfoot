@@ -5,4 +5,15 @@
     <string name="bBin">Blue Bin</string>
     <string name="gBin">Green Bin</string>
     <string name="garb">Garbage Bag</string>
+    <string-array name="weekdays">
+        <item>"Monday"</item>
+        <item>"Tuesday"</item>
+        <item>"Wednesday"</item>
+        <item>"Thursday"</item>
+        <item>"Friday"</item>
+    </string-array>
+    <string-array name="recycling_types">
+        <item>"Blue Bin"</item>
+        <item>"Grey Bin"</item>
+    </string-array>
 </resources>

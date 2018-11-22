@@ -2,6 +2,7 @@ package com.bigfoot.bigfoot;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,12 +30,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //temporary testing
+        Intent enterRecyling = new Intent(MainActivity.this,FirstOpenActivity.class);
+        startActivity(enterRecyling);
+
+
+
+        //done testing
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         tvresult = findViewById(R.id.tvresult);
 
         Button btn = findViewById(R.id.btn);
+
+
+        //more testing below:
+        /*SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
+        String recycleDay = prefs.getString("recycle_day", null);
+        btn.setText(recycleDay); */
         // Button calendarBtn = findViewById(R.id.calendarBtn);
 
         btn.setOnClickListener(new View.OnClickListener() {
