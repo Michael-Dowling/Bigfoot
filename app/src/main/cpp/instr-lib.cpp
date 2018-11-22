@@ -6,31 +6,36 @@
 #include <string>
 
 extern "C" JNIEXPORT jobjectArray JNICALL
-Java_com_bigfoot_bigfoot_InstructionActivity_getInstr(JNIEnv *env) {
+Java_com_bigfoot_bigfoot_InstructionActivity_getInstr1(JNIEnv *env) {
 
-
-   //this was a simple example of integratin c++ into the project
     std::string in1 = "Welcome to BIGFOOT, your go to recycling app!";
+
+    return env->NewStringUTF(in1.c_str());
+ }
+
+extern "C" JNIEXPORT jobjectArray JNICALL
+Java_com_bigfoot_bigfoot_InstructionActivity_getInstr2(JNIEnv *env) {
+
     std::string in2 = "Simply scan your item's barcode and follow the recycling instructions.";
-    std::string in3 = "Checkout the menu for other features.";
-    std::string in4 = "We're here to help you and the planet!";
 
-    jobjectArray inst;
+    return env->NewStringUTF(in2.c_str());
+ }
 
-    jobject fill[4];
+ extern "C" JNIEXPORT jobjectArray JNICALL
+ Java_com_bigfoot_bigfoot_InstructionActivity_getInstr3(JNIEnv *env) {
 
-    fill[0] = in1;
-    fill[1] = in2;
-    fill[2] = in3;
-    fill[3] = in4;
+     std::string in3 = "Checkout the menu for other features.";
 
-    inst = (*env)->NewObjectArray(env,4);
-    (*env)->SetObjectArrayRegion(env, inst, 0, 4, fill);
+     return env->NewStringUTF(in3.c_str());
+  }
 
+  extern "C" JNIEXPORT jobjectArray JNICALL
+  Java_com_bigfoot_bigfoot_InstructionActivity_getInstr4(JNIEnv *env) {
 
-    return inst;
+      std::string in4 = "We're here to help you and the planet!";
+
+      return env->NewStringUTF(in4.c_str());
    }
-
 /*
 
 
