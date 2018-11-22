@@ -53,27 +53,13 @@ public class ResultsActivity extends MainActivity {
 
        // setViews();
 
-        item1.setText("Item:" + resultsFromScan.get(0) );
-        recycleType.setText("Recycle Type:" + resultsFromScan.get(1));
-        binType.setText("Bin:" + resultsFromScan.get(2));
-        descr.setText("Description" + resultsFromScan.get(3));
+        item1.setText("Item: " + resultsFromScan.get(0) );
+        recycleType.setText("Recycle Type: " + resultsFromScan.get(1));
+        binType.setText("Bin: " + resultsFromScan.get(2));
+        descr.setText("Description: " + resultsFromScan.get(3));
 
     }
 
-//    public void setViews(){
-//
-//        item1.setText("Item:" +ScanActivity.getItem());
-//        recycleType.setText("Recycle Type:" +ScanActivity.getRecycleType());
-//        binType.setText("Bin:" +ScanActivity.getBinType());
-//        descr.setText("Description" +ScanActivity.getDescription());
-//    }
-
-
-//        item1.setText("Item:" +ScanActivity.getItem());
-//        recycleType.setText("Recycle Type:" +ScanActivity.getRecycleType());
-//        binType.setText("Bin:" +ScanActivity.getBinType());
-//        descr.setText("Description:" +ScanActivity.getDescription());
-//    }
 
 
     @Override
