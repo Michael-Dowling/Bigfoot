@@ -131,3 +131,36 @@ Java_com_bigfoot_bigfoot_MainActivity_getBinTypeFromName(
     }
     return env->NewStringUTF(binType.c_str());
 }
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_bigfoot_bigfoot_ScanActivity_getBinTypeFromName(
+        JNIEnv *env,
+        jobject , jstring name) {
+
+    const char *str = env->GetStringUTFChars(name, NULL);
+    std::string NAME(str);
+
+    //figure out how to compare jstrings to cstrings
+    std::string binType;
+    //long long int upc = (long long int) UPC;
+    //long long int gatorade = 55577420751;
+    //long long int fiestaSaladFromArc = 2500136000007;
+    //long long int natureValleyGranolaBar = 6563350226;
+
+    if(NAME == "gatorade"){
+        binType = "Blue Bin. Leave the cap on!";
+    }
+    else if(NAME == "nestea"){
+        binType = "Blue Bin";
+    }
+    else if(NAME == "banana") {
+        binType = "Compost";
+    }
+    else if(NAME == "My Class Notes"){
+        binType = "Your Class Notes not found";
+    }
+    else {
+        binType = NAME;
+    }
+    return env->NewStringUTF(binType.c_str());
+}

@@ -16,4 +16,8 @@
         <item>"Blue Bin"</item>
         <item>"Grey Bin"</item>
     </string-array>
+    <string name="item">Item:</string>
+    <string name="bin">Bin</string>
+    <string name="recycle">RecycleType</string>
+    <string name="desc">Description</string>
 </resources>

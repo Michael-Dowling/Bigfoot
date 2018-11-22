@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static TextView tvresult;
 
     static{
         System.loadLibrary("native-lib");
@@ -40,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        tvresult = findViewById(R.id.tvresult);
 
         Button btn = findViewById(R.id.btn);
 
@@ -65,9 +62,12 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //CALL C++ CODE TO GET STRING HERE
+                //CALL C++ CODE TO GET STRING HERE, send it to results
                 String inputText = autoCompleteTextView.getText().toString();
-                tvresult.setText(getBinTypeFromName(inputText));
+                //string array
+                ScanActivity.getFromSearch(inputText);
+                 Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
+                 startActivity(intent);
             }
         });
     }
@@ -100,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
             return super.onOptionsItemSelected(item);
         }
-
+    //call the get_from name
     public native String getBinTypeFromName(String name);
+
+
 
     }

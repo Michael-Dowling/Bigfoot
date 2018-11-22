@@ -3,6 +3,7 @@ package com.bigfoot.bigfoot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,15 +11,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import static com.bigfoot.bigfoot.ScanActivity.RESULTS_MESSAGE;
+
 public class ResultsActivity extends MainActivity {
     public static TextView recycleType;
     public static TextView binType;
-    public static TextView item;
+
+    public static TextView descr;
+
+    public static TextView item1;
+
     Button imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__results);
+
+        Intent intent = getIntent();
+        ArrayList<String> resultsFromScan = intent.getStringArrayListExtra(RESULTS_MESSAGE);
+        Log.d("debug", resultsFromScan.get(0) );
 
 
         //back button
@@ -33,11 +46,20 @@ public class ResultsActivity extends MainActivity {
         });
 
         //setting the types
-        item = findViewById(R.id.itemName);
+        item1 = findViewById(R.id.itemName);
         recycleType = findViewById(R.id.recycleType);
         binType = findViewById(R.id.recycleBin);
+        descr = findViewById(R.id.recycleDescription);
+
+       // setViews();
+
+        item1.setText("Item: " + resultsFromScan.get(0) );
+        recycleType.setText("Recycle Type: " + resultsFromScan.get(1));
+        binType.setText("Bin: " + resultsFromScan.get(2));
+        descr.setText("Description: " + resultsFromScan.get(3));
 
     }
+
 
 
     @Override
