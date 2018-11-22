@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Bigfoot</string>
+    <string name="app_label">Bigfoot</string>
+    <string name="search_hint">Bigfoot</string>
     <string name="weekday_display">On Monday after 6PM put out:</string>
     <string name="weekday">DemoUI</string>
     <string name="bBin">Blue Bin</string>
@@ -9,5 +11,6 @@
     <string name="bin">Bin</string>
     <string name="recycle">RecycleType</string>
     <string name="desc">Description</string>
+    <string name="search_title">woo</string>
 
 </resources>

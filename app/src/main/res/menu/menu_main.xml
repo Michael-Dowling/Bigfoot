@@ -23,6 +23,9 @@
         android:orderInCategory="100"
         android:title="Add Item"
         />
-
-
+    <item android:id="@+id/search"
+        android:title="@string/search_title"
+        android:icon="@drawable/search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="android.widget.SearchView" />
 </menu>

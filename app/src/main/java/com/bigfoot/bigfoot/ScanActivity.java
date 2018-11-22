@@ -1,4 +1,5 @@
 package com.bigfoot.bigfoot;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,7 +26,6 @@ import java.util.ArrayList;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 
-
 public class ScanActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
     private GetBarcode gb;
@@ -37,13 +37,13 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     String albertServer = "http://albert.caslab.queensu.ca/";
     String phpString = "getItemByBC.php";
     String bcPHPvarName = "?barcode=";
-    public static final String RESULTS_MESSAGE= "com.bigfoot.bigfoot.RESULTS";
+    public static final String RESULTS_MESSAGE = "com.bigfoot.bigfoot.RESULTS";
 
-    private static String[] fields = {"itemName", "recyclingType", "binColour", "description" };
+    private static String[] fields = {"itemName", "recyclingType", "binColour", "description"};
     private static ArrayList<String> sendToresults = new ArrayList<>();
 
 
-    static{
+    static {
         //load native cpp libraries
         System.loadLibrary("native-lib");
         System.loadLibrary("GetBarcode");
@@ -55,8 +55,8 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
     @Override
     public void onCreate(Bundle state) {
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            android.support.v4.app.ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 1);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            android.support.v4.app.ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
         }
         gb = new GetBarcode();
 
@@ -88,7 +88,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
 
         //call native c++ code to determine if there is a barcode match
-        if(gb.barcodeMatch(upc)){
+        if (gb.barcodeMatch(upc)) {
             gotBarcode(result.getContents());    //got a barcode match, call method to deal with it
             //ArrayList<String> sendToResults = processResult();
 //            Intent i = new Intent(this, ResultsActivity.class);
@@ -101,31 +101,40 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
     }
-    public static String getItem(){
+
+    public static String getItem() {
         return item;
     }
-    public static String getBinType(){
+
+    public static String getBinType() {
         return binType;
     }
-    public static String getRecycleType(){
+
+    public static String getRecycleType() {
         return recycleType;
     }
-    public static String getDescription(){
+
+    public static String getDescription() {
         return description;
     }
-    public static void setItem(String it){
+
+    public static void setItem(String it) {
         item = it;
 
     }
-    public static void setBinType(String b){
+
+    public static void setBinType(String b) {
         binType = b;
     }
-    public static void setRecycleType(String re){
+
+    public static void setRecycleType(String re) {
         recycleType = re;
     }
-    public static void setDescription(String de){
+
+    public static void setDescription(String de) {
         description = de;
     }
+
     public void gotBarcode(String barcode) {
         long code = Long.parseLong(barcode);
         //String type = getBinTypeFromUpc(code);
@@ -153,14 +162,15 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         //ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
         //ResultsActivity.binType.setText(type);
     }
-        public static void getFromSearch(String input){
-       // binType = getBinTypeFromName(input);
-            binType = "woo";
+
+    public static void getFromSearch(String input) {
+        // binType = getBinTypeFromName(input);
+        binType = "woo";
         description = "descr";
         item = "name";
         recycleType = "something";
 
-        }
+    }
 
     private void downloadJSON(final String urlWebService) {
 
@@ -207,14 +217,14 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     private void processResult(String json) throws JSONException {
 
         if (json.equals("[]")) {
-            Log.d("error" ,"help");
+            Log.d("error", "help");
             // Intent intent = new Intent(this, addItem.class);
             // intent.putExtra(BARCODE_MESSAGE, barcode);
             // startActivity(intent);
 
         } else {
             //ArrayList<String> niceStrings = new ArrayList<>();
-            Log.d("error" ,"else");
+            Log.d("error", "else");
             JSONArray jsonArray = new JSONArray(json);
             JSONObject obj = jsonArray.getJSONObject(0);
             for (int i = 0; i < fields.length; i++) {
@@ -227,7 +237,10 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     }
 
     public native String getBinTypeFromUpc(long UPC);
+
     public native String getNameFromUpc(long UPC);
+
     public native String getRecycleTypeFromUpc(long UPC);
+
     public native String getBinTypeFromName(String name);
 }
