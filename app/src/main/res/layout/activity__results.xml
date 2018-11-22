@@ -50,8 +50,7 @@
         android:layout_below="@id/itemPic"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Item:"
-
+        android:text="@string/item"
         />
 
     <TextView

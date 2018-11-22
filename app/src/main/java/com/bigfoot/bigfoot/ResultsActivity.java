@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class ResultsActivity extends MainActivity {
     public static TextView recycleType;
     public static TextView binType;
-    public static TextView item;
+    public static TextView item1;
     Button imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +33,13 @@ public class ResultsActivity extends MainActivity {
         });
 
         //setting the types
-        item = findViewById(R.id.itemName);
+        item1 = findViewById(R.id.itemName);
         recycleType = findViewById(R.id.recycleType);
         binType = findViewById(R.id.recycleBin);
+
+        item1.setText(ScanActivity.getItem());
+        recycleType.setText(ScanActivity.getRecycleType());
+        binType.setText(ScanActivity.getBinType());
 
     }
 

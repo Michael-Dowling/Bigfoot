@@ -5,4 +5,5 @@
     <string name="bBin">Blue Bin</string>
     <string name="gBin">Green Bin</string>
     <string name="garb">Garbage Bag</string>
+    <string name="item">item</string>
 </resources>

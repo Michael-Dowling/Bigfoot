@@ -7,13 +7,22 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
+
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
+
+
 
 public class ScanActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
     private GetBarcode gb;
+    private static String item;
+    private static String recycleType;
+    private static String binType;
+    private static String description;
+
 
     static{
         //load native cpp libraries
@@ -65,18 +74,43 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         if(gb.barcodeMatch(upc)){
             gotBarcode(result.getContents());    //got a barcode match, call method to deal with it
             Intent i = new Intent(this, ResultsActivity.class);
-               startActivity(i);
+            startActivity(i);
+            //onBackPressed();
         }
 
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
     }
+    public static String getItem(){
+        return item;
+    }
+    public static String getBinType(){
+        return binType;
+    }
+    public static String getRecycleType(){
+        return recycleType;
+    }
     public void gotBarcode(String barcode){
         long code = Long.parseLong(barcode);
         //String type = getBinTypeFromUpc(code);
-        ResultsActivity.binType.setText(getBinTypeFromUpc(code));
-        ResultsActivity.item.setText(getNameFromUpc(code));
-        ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
+        //ResultsActivity.binType.setText(getBinTypeFromUpc(code));
+
+        //TextView item = findViewById(R.id.itemName);
+        //Toast.makeText(getApplicationContext(),"Hello",Toast.LENGTH_SHORT).show();
+       // String hey = "Hello";
+       // String ho = "Hi";
+       // String wooo = "It worked";
+       // item = "hello";
+
+        //REPLACE THESE @ CHRISOTPHER
+        binType = getBinTypeFromUpc(code);
+        item = getNameFromUpc(code);
+        recycleType = getRecycleTypeFromUpc(code);
+
+        //ResultsActivity.item1.setText("HELLO!");
+        //MainActivity.tvresult.setText("HELLO!");
+        //ResultsActivity.item.setText(getNameFromUpc(code));
+        //ResultsActivity.recycleType.setText(getRecycleTypeFromUpc(code));
         //ResultsActivity.binType.setText(type);
 
     }
