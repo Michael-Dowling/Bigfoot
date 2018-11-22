@@ -1,87 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:background="#ffedd1"
     tools:context=".ResultsActivity"
-    >
-
+    tools:layout_editor_absoluteY="81dp">
 
 
     <Button
-        app:backgroundTint="#23af23"
         android:id="@+id/fab"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Scan"
-        />
-
+        app:backgroundTint="#23af23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="61dp"
-        android:layout_height="51dp"
-        tools:ignore="ContentDescription"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="155dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/_recyclelogo"
-        android:layout_centerHorizontal="true"/>
+        tools:ignore="ContentDescription" />
 
 
     <ImageView
         android:id="@+id/itemPic"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="240dp"
-        android:layout_below="@id/logo"
-        tools:ignore="ContentDescription"
-        android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="61dp"
-        app:srcCompat="@drawable/_recyclelogo" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="115dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/download"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/itemName"
-        android:layout_alignEnd="@id/fab"
         android:layout_width="wrap_content"
-        android:layout_below="@id/itemPic"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/item"/>
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="176dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="@string/item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemPic" />
+
     <TextView
         android:id="@+id/recycleType"
-        android:layout_alignEnd="@id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/itemName"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="152dp"
+        android:textSize="20sp"
+        android:gravity="center"
         android:text="@string/recycle"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
     <TextView
         android:id="@+id/recycleBin"
         android:layout_width="wrap_content"
-        android:layout_alignEnd="@id/fab"
-        android:layout_below="@id/recycleType"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginStart="183dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="182dp"
+        android:gravity="center"
         android:text="@string/bin"
-        />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleDescription" />
+
     <TextView
         android:id="@+id/recycleDescription"
         android:layout_width="wrap_content"
-        android:layout_alignEnd="@id/fab"
-        android:layout_below="@id/recycleBin"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="156dp"
+        android:textSize="20sp"
+        android:gravity="center"
         android:text="@string/desc"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleType" />
 
 
-
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

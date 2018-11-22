@@ -40,7 +40,7 @@ public class ResultsActivity extends MainActivity {
         item1 = findViewById(R.id.itemName);
         recycleType = findViewById(R.id.recycleType);
         binType = findViewById(R.id.recycleBin);
-        descr = findViewById(R.id.recycleBin);
+        descr = findViewById(R.id.recycleDescription);
 
         setViews();
 
@@ -51,7 +51,7 @@ public class ResultsActivity extends MainActivity {
         item1.setText("Item:" +ScanActivity.getItem());
         recycleType.setText("Recycle Type:" +ScanActivity.getRecycleType());
         binType.setText("Bin:" +ScanActivity.getBinType());
-        descr.setText("Description" +ScanActivity.getDescription());
+        descr.setText("Description:" +ScanActivity.getDescription());
     }
 
 
