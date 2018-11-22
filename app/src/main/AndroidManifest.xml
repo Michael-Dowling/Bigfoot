@@ -57,7 +57,8 @@
                 <category android:name="android.intent.category.OPENABLE" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestDbActivity"></activity>
+        <activity android:name=".TestDbActivity" />
+        <activity android:name=".AddItemActivity"></activity>
     </application>
 
 </manifest>
