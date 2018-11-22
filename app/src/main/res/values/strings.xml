@@ -20,4 +20,7 @@
     <string name="bin">Bin</string>
     <string name="recycle">RecycleType</string>
     <string name="desc">Description</string>
+    <string name="search_title">Description</string>
+    <string name="search_hint">search for your item...</string>
+
 </resources>
