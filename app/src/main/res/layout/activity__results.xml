@@ -45,33 +45,42 @@
 
     <TextView
         android:id="@+id/itemName"
-        android:layout_alignStart="@id/logo"
+        android:layout_alignEnd="@id/fab"
         android:layout_width="wrap_content"
         android:layout_below="@id/itemPic"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Item:"
+        android:text="@string/item"
 
         />
 
     <TextView
         android:id="@+id/recycleType"
-        android:layout_alignStart="@id/logo"
+        android:layout_alignEnd="@id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/itemName"
         android:layout_gravity="center_horizontal"
-        android:text="Recycle Type: "
+        android:text="@string/recycle"
         />
 
     <TextView
         android:id="@+id/recycleBin"
         android:layout_width="wrap_content"
-        android:layout_alignStart="@id/logo"
+        android:layout_alignEnd="@id/fab"
         android:layout_below="@id/recycleType"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Bin"
+        android:text="@string/bin"
+        />
+    <TextView
+        android:id="@+id/recycleDescription"
+        android:layout_width="wrap_content"
+        android:layout_alignEnd="@id/fab"
+        android:layout_below="@id/recycleBin"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/desc"
         />
 
 

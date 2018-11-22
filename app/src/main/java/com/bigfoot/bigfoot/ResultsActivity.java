@@ -14,6 +14,7 @@ public class ResultsActivity extends MainActivity {
     public static TextView recycleType;
     public static TextView binType;
     public static TextView item;
+    public static TextView descr;
     Button imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class ResultsActivity extends MainActivity {
         item = findViewById(R.id.itemName);
         recycleType = findViewById(R.id.recycleType);
         binType = findViewById(R.id.recycleBin);
+        descr = findViewById(R.id.recycleBin);
+
 
     }
 
