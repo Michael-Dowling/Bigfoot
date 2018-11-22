@@ -45,24 +45,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn = findViewById(R.id.button);
-        final AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView)findViewById((R.id.autoCompleteTextView));
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //CALL C++ CODE TO GET STRING HERE, send it to results
-                String inputText = autoCompleteTextView.getText().toString();
-                //string array
-                ScanActivity.getFromSearch(inputText);
-                 Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
-                 startActivity(intent);
-            }
-        });
     }
 
         @Override
         public boolean onCreateOptionsMenu (Menu menu){
             getMenuInflater().inflate(R.menu.menu_main, menu);
+            SearchManager searchManager =
+                    (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            SearchView searchView =
+                    (SearchView) menu.findItem(R.id.search).getActionView();
+            searchView.setSearchableInfo(
+                    searchManager.getSearchableInfo(getComponentName()));
             return true;
         }
 
@@ -78,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.action_facts:
                     return true;
-                case R.id.action_previous:
-                    Intent j = new Intent(this, ResultsActivity.class);
-                    startActivity(j);
-                    break;
                 case R.id.action_settings:
                     Intent k = new Intent(this,FirstOpenActivity.class);
                     startActivity(k);
