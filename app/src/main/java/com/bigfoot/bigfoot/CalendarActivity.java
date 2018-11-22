@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,10 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
+        int nextRecylingDate = prefs.getInt("first_recycling_date",Calendar.DAY_OF_MONTH);  //the day of the month of the next recycling day, defaults to today's date if not entered by user
+        String nextRecyclingType = prefs.getString("first_recycle_type","Blue Bin"); //will be either "Blue Bin" or "Grey Bin", defaults to "Blue Bin" if not entered by user
+        String recylingDay = prefs.getString("recycle_day","Tuesday"); // will be day of week (e.g. "Monday", "Tuesday", "Wednesday", ... ).
 
 
         //back button, worst case we can go
