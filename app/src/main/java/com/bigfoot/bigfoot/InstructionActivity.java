@@ -1,6 +1,7 @@
 package com.bigfoot.bigfoot;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,13 @@ public class InstructionActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //if it is their first time opening the app, ask about their recycling day/type
+        SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
+        if(!prefs.getBoolean("got_prefs",false)) {
+            Intent enterRecyling = new Intent(InstructionActivity.this, FirstOpenActivity.class);
+            startActivity(enterRecyling);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructions);
 
@@ -29,7 +37,6 @@ public class InstructionActivity extends AppCompatActivity{
         instr2.setText(getInstr2());
         instr3.setText(getInstr3());
         instr4.setText(getInstr4());
-
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

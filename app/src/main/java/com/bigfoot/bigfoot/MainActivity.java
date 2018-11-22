@@ -29,24 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //temporary testing
-        Intent enterRecyling = new Intent(MainActivity.this,FirstOpenActivity.class);
-        startActivity(enterRecyling);
-
-
-
-        //done testing
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Button btn = findViewById(R.id.btn);
 
-
-        //more testing below:
-        /*SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
-        String recycleDay = prefs.getString("recycle_day", null);
-        btn.setText(recycleDay); */
         // Button calendarBtn = findViewById(R.id.calendarBtn);
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -104,5 +92,4 @@ public class MainActivity extends AppCompatActivity {
     public native String getBinTypeFromName(String name);
 
 
-
-    }
+}

@@ -21,7 +21,7 @@ public class FirstOpenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_open);
         //set up dropdown list for recycling day
-        Spinner recDaySpinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner recDaySpinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.weekdays,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         recDaySpinner.setAdapter(adapter);
@@ -31,7 +31,7 @@ public class FirstOpenActivity extends AppCompatActivity {
               public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                   final String[] s = getResources().getStringArray(R.array.weekdays);
                   SharedPreferences.Editor editor = getSharedPreferences("Prefs",MODE_PRIVATE).edit();
-                  editor.putString("recycle_day",s[i]);
+                  editor.putString("recycle_day",s[i]).apply();
               }
 
               @Override
@@ -50,7 +50,7 @@ public class FirstOpenActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 final String[] s = getResources().getStringArray(R.array.recycling_types);
                 SharedPreferences.Editor editor = getSharedPreferences("Prefs",MODE_PRIVATE).edit();
-                editor.putString("first_recyle_type",s[i]);
+                editor.putString("first_recyle_type",s[i]).apply();
             }
 
             @Override
@@ -62,21 +62,34 @@ public class FirstOpenActivity extends AppCompatActivity {
         Button done = (Button) findViewById(R.id.button3);
         done.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View v){
-                Spinner recDaySpinner = (Spinner) findViewById(R.id.spinner);
+                //get shared preferences editor to store settings
+                SharedPreferences.Editor editor = getSharedPreferences("Prefs",MODE_PRIVATE).edit();
+
+                //put recycle day selection in preferences
+                final String[] s = getResources().getStringArray(R.array.weekdays);
+                final Spinner recDaySpinner = (Spinner) findViewById(R.id.spinner);
+                editor.putString("recycle_day",s[recDaySpinner.getSelectedItemPosition()]).apply();
+
+                //get the first recyling day after the current day
                 int dayNextRec = 2 + recDaySpinner.getSelectedItemPosition();
-                //get day of next first recyling (for blue/grey bin reference)
                 Calendar calendar = Calendar.getInstance();
                 int day = calendar.get(Calendar.DAY_OF_WEEK);
                 int date = calendar.get(Calendar.DAY_OF_MONTH);
                 int dayDiff = dayNextRec-day;
                 int nextRecylingDate;
-                if(dayDiff < 0){
+                if(dayDiff <= 0){
                     nextRecylingDate = date + 7 + dayDiff;
                 }else{
                     nextRecylingDate = date + dayDiff;
                 }
-                SharedPreferences.Editor editor = getSharedPreferences("Prefs",MODE_PRIVATE).edit();
-                editor.putInt("first_recycling_date",nextRecylingDate);
+                editor.putInt("first_recycling_date",nextRecylingDate).apply();
+
+                final Spinner recTypeSpinner = (Spinner) findViewById(R.id.spinner2);
+                final String[] recTypes = getResources().getStringArray(R.array.recycling_types);
+                editor.putString("first_recycle_type",recTypes[recTypeSpinner.getSelectedItemPosition()]).apply();  //put first recycle type in preferences
+
+
+                editor.putBoolean("got_prefs",true).apply();
 
                 Intent i = new Intent(FirstOpenActivity.this,InstructionActivity.class);
                 startActivity(i);
