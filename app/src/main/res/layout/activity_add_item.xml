@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/tvresult"
+        android:id="@+id/barcodeNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -19,7 +19,7 @@
         android:textColor="#000" />
 
     <TextView
-        android:id="@+id/tvresult2"
+        android:id="@+id/NameText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -27,73 +27,52 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="cokecan..." />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/itemName"
         android:layout_height="wrap_content"
-
-        android:layout_marginStart="125dp"
-        android:text="Scan Barcode or QR code" />
+        android:layout_width="match_parent"
+        android:inputType="text"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/RecTypeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="RecyclingType" />
 
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/recType"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </android.support.design.widget.TextInputLayout>
+        android:inputType="text"/>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/BinColourText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bin Colour" />
 
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/BinColour"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="63dp">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-
-    </android.support.design.widget.TextInputLayout>
+        android:inputType="text"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/DescriptionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="@string/textview" />
 
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/description"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:inputType="text"/>
 
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:hint="hint" />
-    </android.support.design.widget.TextInputLayout>
-
+    <Button
+        android:id="@+id/submitbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
 </LinearLayout>
 

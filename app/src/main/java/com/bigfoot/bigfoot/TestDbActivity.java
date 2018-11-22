@@ -16,8 +16,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class TestDbActivity extends AppCompatActivity {
+import static com.bigfoot.bigfoot.ScanActivity.BARCODE_MESSAGE;
 
+public class TestDbActivity extends AppCompatActivity {
+    private static long barcode;
     ListView listView;
 
     @Override
@@ -26,7 +28,7 @@ public class TestDbActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test_db);
 
         Intent intent = getIntent();
-        String barcodeFrmScan = intent.getStringExtra(ScanActivity.BARCODE_MESSAGE);
+        String barcodeFrmScan = intent.getStringExtra(BARCODE_MESSAGE);
 
         String urlReturnItemFrmBC = "http://albert.caslab.queensu.ca/getItemByBC.php";
         String bcPHPvarName = "?barcode=";
@@ -102,7 +104,7 @@ public class TestDbActivity extends AppCompatActivity {
         String description;
 
         if (json.equals("[]")) {
-            Intent intent = new Intent(this, addItem.class);
+            Intent intent = new Intent(this, AddItemActivity.class);
             intent.putExtra(BARCODE_MESSAGE, barcode);
             startActivity(intent);
         } else {
