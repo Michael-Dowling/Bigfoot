@@ -8,6 +8,10 @@ import android.widget.Toast;
 
 public class SearchResultsActivity extends AppCompatActivity {
 
+    String albertServer = "http://albert.caslab.queensu.ca/";
+    String phpString = "getItemByBC.php";
+    String bcPHPvarName = "?barcode=";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

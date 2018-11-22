@@ -166,7 +166,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
         }
 
-    private void downloadJSON(final String urlWebService) {
+    public void downloadJSON(final String urlWebService) {
 
         class DownloadJSON extends AsyncTask<Void, Void, String> {
 
@@ -208,7 +208,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         getJSON.execute();
     }
 
-    private void processResult(String json) throws JSONException {
+    public void processResult(String json) throws JSONException {
 
         if (json.equals("[]")) {
             Log.d("error" ,"help");
