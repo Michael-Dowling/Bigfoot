@@ -20,8 +20,18 @@ import android.view.MenuItem;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
+public class MainActivity extends AppCompatActivity {
+    private String[] recyclingFacts = {"It takes roughly a thousand years for plastic bottles to naturally break down.",
+            "Aluminium cans can be recycled and put back onto the shelf at your local grocery store in 2 months.",
+            "Recycling all of the New York Times printed on one day would save over 75,000 trees.",
+            "Over 60% of the trash that ends in dustbin could be recycled.",
+            "The most thrown away products include diapers, pens, razor blades, tires and aluminium- all of which can be used to be recycled into other products.",
+            "Recycling one glass bottle saves enough energy to power a 100-watt bulb for four hours.",
+            "It takes 70% less energy to recycle paper than to make it from raw material.",
+            "Making cans from recyled aluminum takes 5% of the energy required to make them from raw materials."};
 
     static{
         System.loadLibrary("native-lib");
@@ -32,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        updateFact();
 
         Button btn = findViewById(R.id.btn);
 
@@ -45,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateFact();
     }
 
         @Override
@@ -82,6 +100,13 @@ public class MainActivity extends AppCompatActivity {
 
             return super.onOptionsItemSelected(item);
         }
+
+    private void updateFact(){
+        TextView recFacts = findViewById(R.id.recyclingFacts);
+        int randomNum = ThreadLocalRandom.current().nextInt(0, recyclingFacts.length);
+        recFacts.setText(recyclingFacts[randomNum]);
+    }
+
     //call the get_from name
     public native String getBinTypeFromName(String name);
 
