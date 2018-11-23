@@ -61,7 +61,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".FirstOpenActivity" />
-        <activity android:name=".SearchResultsActivity">
+        <activity android:name=".SearchResultsActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -69,7 +70,9 @@
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddItemActivity"></activity>
+        <activity android:name=".AddItemActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
     </application>
 
 </manifest>
