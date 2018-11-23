@@ -127,7 +127,8 @@ public class SearchResultsActivity extends AppCompatActivity {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 textView1.setTextSize(20);
                 textView2.setTextSize(20);
-                textView1.setText(obj.getString("itemName"));
+                String s = obj.getString("itemName");
+                textView1.setText(s.substring(0, Math.min(s.length(), 20)));
                 textView2.setText("         " + obj.getString("binColour"));
                 tableRow.addView(textView1);
                 tableRow.addView(textView2);

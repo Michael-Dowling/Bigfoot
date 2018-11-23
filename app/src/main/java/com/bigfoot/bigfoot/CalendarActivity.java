@@ -163,10 +163,6 @@ public class CalendarActivity extends AppCompatActivity {
                     return true;
                 case R.id.action_facts:
                     return true;
-                case R.id.action_previous:
-                    Intent j = new Intent(this, ResultsActivity.class);
-                    startActivity(j);
-                    break;
                 case R.id.action_settings:
                     Intent k = new Intent(this,FirstOpenActivity.class);
                     startActivity(k);

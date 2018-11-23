@@ -172,7 +172,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     processResult(s);
                 } catch (JSONException e) {
