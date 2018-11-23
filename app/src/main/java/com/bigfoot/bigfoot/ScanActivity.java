@@ -81,9 +81,6 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
     @Override
     public void handleResult(me.dm7.barcodescanner.zbar.Result result) {
-        // Do something with the result here
-        Log.v("kkkk", result.getContents()); // Prints scan results
-        Log.v("uuuu", result.getBarcodeFormat().getName()); // Prints the scan format (qrcode, pdf417 etc.)
         long upc;
         try {
             upc = Long.parseLong(result.getContents());    //parse long upc from string results
@@ -91,18 +88,10 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
             mScannerView.resumeCameraPreview(this);
             return;
         }
-
         //call native c++ code to determine if there is a barcode match
         if(gb.barcodeMatch(upc)){
             gotBarcode(result.getContents());    //got a barcode match, call method to deal with it
-            //ArrayList<String> sendToResults = processResult();
-//            Intent i = new Intent(this, ResultsActivity.class);
-//            i.putExtra(RESULTS_MESSAGE, sendToresults);
-//            Log.d("weird", sendToresults.get(0));
-//            startActivity(i);
-            //onBackPressed();
         }
-
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
     }
