@@ -2,6 +2,7 @@ USE bigfoot;
 DROP TABLE IF EXISTS BFItem;
 DROP TABLE IF EXISTS BFAccount;
 
+
 CREATE TABLE BFAccount(
 account_id INT AUTO_INCREMENT,
 PRIMARY KEY(account_id),
@@ -16,7 +17,7 @@ CREATE TABLE BFItem(
 barcodeNumber VARCHAR(255),
 itemName VARCHAR(255),
 pictureAddress VARCHAR(255),
-recyclingType ENUM('plastic', 'cardboard','garbage'),
+recyclingType ENUM('plastic', 'cardboard','garbage','cans'),
 timeAdded TIMESTAMP,
 addedByID INT,
 binColour VARCHAR(255),
@@ -24,6 +25,9 @@ description VARCHAR(1000),
 
 FOREIGN KEY(addedByID)
 REFERENCES BFAccount(account_id));
+
+ALTER TABLE  BFItem ADD FULLTEXT(itemName, description);
+
 INSERT INTO BFAccount (account_id,BFname, streetName, streetNumber, city,
 province, postalCode) VALUES
 (NULL, "Thomas Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
@@ -44,7 +48,7 @@ province, postalCode) VALUES
 (NULL, "Michelle Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
 INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
 VALUES
-("123456789012", "coke can", "/home/DankMemes/cokeCan.jpg", 'plastic', current_timestamp, 1, "blue", "ensure contents are empty");
+("123456789012", "coke can", "/home/DankMemes/cokeCan.jpg", 'cans', current_timestamp, 1, "blue", "ensure contents are empty");
 INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
 VALUES
 ("123456789013", "pizzaBox", "/home/DankMemes/pizzaBox.jpg", 'cardboard', current_timestamp, 2, "grey", "if the box is greasy it goes in the compost");
@@ -69,7 +73,378 @@ VALUES
 INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
 VALUES
 ("096619321841", "kirkland natural spring water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
-
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Acqua Panna Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "AdeS Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Agua Mineral Salus Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Agua Vida Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ambo Mineral Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Amma Kudineer Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Antipodes Water Company", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Apenta Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Apollinaris Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Aqua Pura Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Aquafina Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Aquas Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Arrowhead Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ayvaz Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Arwa Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Badoit Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ballygowan Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Bear-lithia Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Belu Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Bílinská kyselka Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Bisleri Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Borjomi Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Brecon Carreg Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Buxton Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ciego Montero Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ciel Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Cool Blue Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Hiram Codd Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Contrex Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Cool Ridge Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Crystal Clear Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Crystal Geyser Water Company", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Culligan Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Damavand Mineral Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Dana Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Dasani Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Deep River Rock Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Deep Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Deer Park Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Dejà Blue Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Donat Mg Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ein Gedi Mineral Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Energy Brands Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ethos Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Evian Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Jermuk Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Highland Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Staatl. Fachingen Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Farris Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Fiji Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Fruit2O Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Fuentealta Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Galvanina Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Gerolsteiner Brunnen Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Glaceau Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Great Value Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Gourmet Foods Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Harrogate Spa Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Highland Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Himalaya Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ice Mountain Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Iceland Pure Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Icelandic Glacial Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Isklar Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Jamnica Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Jana Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Kellogg's Special K2O Protein Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Knjaz Miloš a.d. Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Lithia Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Londonderry Lithia Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Mai Dubai Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Malvern water Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Malvern Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Mattoni Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Mey Eden Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Mohai Agnes mineral water Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Mount Franklin Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Mountain Valley Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Nabeglavi Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Naya Waters", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Nestlé Pure Life Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Nestlé Waters", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Nestlé Waters North America", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "NEWater", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Nongfu Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ozarka Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Panama Blue Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Panna Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Pennine Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Penta Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Perrier Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Persa Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Pluto Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Poland Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Powwow Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Princes Gate Spring Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Propel Fitness Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Pump Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Radenska Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ramlösa Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Sairme Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Samaria Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "San Mateo Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "San Pellegrino Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Sanfaustino Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Selters Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Sierra Springs Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Sohat Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Souroti Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Spa Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Tau Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Tipperary Natural Mineral Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Trump Ice Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Ty Nant Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Valpre Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "VEEN Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Vittel Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Volvic Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Voss Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Watsons Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Whistler Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Zajecická horká Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "Zephyrhills Water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("036000291452", "caches phone", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
 
 
 

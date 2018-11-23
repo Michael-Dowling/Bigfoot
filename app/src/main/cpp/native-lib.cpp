@@ -12,6 +12,8 @@ Java_com_bigfoot_bigfoot_ScanActivity_getBinTypeFromUpc(
     //all of this code to a database, and would have it linked to your location.
     // It should be noted that we did write the code for the database (see RecycleDB)
     //we just couldn't get it working. Anyways, enjoy our if statements!
+
+    //LOL, JK, we got it working!!!!!!
     std::string binType;
     long long int upc = (long long int) UPC;
     long long int gatorade = 55577420751;
