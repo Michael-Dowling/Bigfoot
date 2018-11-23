@@ -84,9 +84,13 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         // Do something with the result here
         Log.v("kkkk", result.getContents()); // Prints scan results
         Log.v("uuuu", result.getBarcodeFormat().getName()); // Prints the scan format (qrcode, pdf417 etc.)
-
-        long upc = Long.parseLong(result.getContents());    //parse long upc from string results
-
+        long upc;
+        try {
+            upc = Long.parseLong(result.getContents());    //parse long upc from string results
+        }catch(Exception e){
+            mScannerView.resumeCameraPreview(this);
+            return;
+        }
 
         //call native c++ code to determine if there is a barcode match
         if(gb.barcodeMatch(upc)){
