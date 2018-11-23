@@ -45,7 +45,9 @@
         android:layout_width="298dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Hello"
+
+        android:text="It takes roughly a thousand years for plastic bottles to naturally break down."
+
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="italic"

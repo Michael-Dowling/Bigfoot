@@ -1,0 +1,87 @@
+USE bigfoot;
+DROP TABLE IF EXISTS BFItem;
+DROP TABLE IF EXISTS BFAccount;
+
+CREATE TABLE BFAccount(
+account_id INT AUTO_INCREMENT,
+PRIMARY KEY(account_id),
+BFname VARCHAR(255),
+streetName VARCHAR(255),
+streetNumber int,
+city VARCHAR(255),
+province VARCHAR(255),
+postalCode VARCHAR(255));
+
+CREATE TABLE BFItem(
+barcodeNumber VARCHAR(255),
+itemName VARCHAR(255),
+pictureAddress VARCHAR(255),
+recyclingType ENUM('plastic', 'cardboard','garbage'),
+timeAdded TIMESTAMP,
+addedByID INT,
+binColour VARCHAR(255),
+description VARCHAR(1000),
+
+FOREIGN KEY(addedByID)
+REFERENCES BFAccount(account_id));
+INSERT INTO BFAccount (account_id,BFname, streetName, streetNumber, city,
+province, postalCode) VALUES
+(NULL, "Thomas Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
+INSERT INTO BFAccount (account_id,BFname, streetName, streetNumber, city,
+province, postalCode) VALUES
+(NULL, "Chris Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
+INSERT INTO BFAccount (account_id,BFname, streetName, streetNumber, city,
+province, postalCode) VALUES
+(NULL, "Emily Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
+INSERT INTO BFAccount (account_id,BFname, streetName, streetNumber, city,
+province, postalCode) VALUES
+(NULL, "Alison Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
+INSERT INTO BFAccount (account_id,BFname, streetName, streetNumber, city,
+province, postalCode) VALUES
+(NULL, "Alistair Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
+INSERT INTO BFAccount (account_id,BFname, streetName, streetNumber, city,
+province, postalCode) VALUES
+(NULL, "Michelle Parker", "Grace Crescent", 87, "Barrie", "Ontario", "L4N9S4");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("123456789012", "coke can", "/home/DankMemes/cokeCan.jpg", 'plastic', current_timestamp, 1, "blue", "ensure contents are empty");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("123456789013", "pizzaBox", "/home/DankMemes/pizzaBox.jpg", 'cardboard', current_timestamp, 2, "grey", "if the box is greasy it goes in the compost");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("123456789014", "coke2L", "/home/DankMemes/coke2L.jpg", 'plastic', current_timestamp, 3, "blue", "ensure contents are empty");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("786162650115", "vitamin water", "/home/DankMemes/vitaminWater.jpg", 'plastic', current_timestamp, 4, "blue", "ensure contents are empty and leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619421688", "kirkland trail mix", "/home/DankMemes/trailMix.jpg", 'garbage', current_timestamp, 5, "garbage", "");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("065633502260", "nature valley sweet and salty granola bar", "/home/DankMemes/granolaBar.jpg", 'garbage', current_timestamp, 6, "garbage", "");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("068274000218", "nestle pure life water bottle", "/home/DankMemes/waterBottle.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, timeAdded, addedByID, binColour, description)
+VALUES
+("loljustasjoke", "my class notes", "/home/DankMemes/myClassNotes.jpg", current_timestamp, 6, "", "your class notes not found...");
+INSERT INTO BFItem(barcodeNumber, itemName,pictureAddress, recyclingType, timeAdded, addedByID, binColour, description)
+VALUES
+("096619321841", "kirkland natural spring water", "/home/DankMemes/waterBottle2.jpg", 'plastic', current_timestamp, 6, "blue", "leave the cap on");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

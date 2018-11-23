@@ -19,7 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.Toast;
-
+import java.util.Calendar;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -102,9 +102,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
     private void updateFact(){
-        TextView recFacts = findViewById(R.id.recyclingFacts);
-        int randomNum = ThreadLocalRandom.current().nextInt(0, recyclingFacts.length);
-        recFacts.setText(recyclingFacts[randomNum]);
+        try {
+            TextView recFacts = findViewById(R.id.recyclingFacts);
+            int randomNum = ThreadLocalRandom.current().nextInt(0, recyclingFacts.length);
+            recFacts.setText(recyclingFacts[randomNum]);
+        }catch(Exception e){
+            return;
+        }
     }
 
     //call the get_from name

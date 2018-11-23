@@ -98,7 +98,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 
     public void processResult(String json) throws JSONException {
 
-        if (json.equals("[]")) {
+        if (json.equals("[]") || json == null || json == "") {
             Log.d("error" ,"help");
             Toast.makeText(getApplicationContext(), "Not found :(", Toast.LENGTH_SHORT).show();
 
