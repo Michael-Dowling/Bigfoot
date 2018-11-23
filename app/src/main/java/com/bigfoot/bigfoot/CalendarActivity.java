@@ -68,7 +68,7 @@ public class CalendarActivity extends AppCompatActivity {
             }
         }
         TextView text = findViewById(R.id.text_view_2);
-        text.setText("On " + daysOfWeek.get(day-2) + " after 6PM put out:");
+        text.setText("On " + daysOfWeek.get((day+5)%7) + " after 6PM put out:");
         final CompactCalendarView compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
         compactCalendarView.setFirstDayOfWeek(Calendar.SUNDAY);
 

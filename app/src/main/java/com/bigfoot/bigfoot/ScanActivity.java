@@ -33,11 +33,12 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     private static String recycleType;
     private static String binType;
     private static String description;
-
+    private static long[] barcodeArray;
     String albertServer = "http://albert.caslab.queensu.ca/";
     String phpString = "getItemByBC.php";
     String bcPHPvarName = "?barcode=";
     public static final String RESULTS_MESSAGE= "com.bigfoot.bigfoot.RESULTS";
+    public static final String BARCODE_MESSAGE= "com.bigfoot.bigfoot.BARCODE";
 
     private static String[] fields = {"itemName", "recyclingType", "binColour", "description" };
     private static ArrayList<String> sendToresults = new ArrayList<>();
@@ -128,6 +129,9 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
     }
     public void gotBarcode(String barcode) {
         long code = Long.parseLong(barcode);
+        barcodeArray = new long[1];
+        barcodeArray[0] = code;
+
         //String type = getBinTypeFromUpc(code);
         //ResultsActivity.binType.setText(getBinTypeFromUpc(code));
 
@@ -162,7 +166,7 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
 
         }
 
-    private void downloadJSON(final String urlWebService) {
+    public void downloadJSON(final String urlWebService) {
 
         class DownloadJSON extends AsyncTask<Void, Void, String> {
 
@@ -204,13 +208,13 @@ public class ScanActivity extends AppCompatActivity implements ZBarScannerView.R
         getJSON.execute();
     }
 
-    private void processResult(String json) throws JSONException {
+    public void processResult(String json) throws JSONException {
 
         if (json.equals("[]")) {
             Log.d("error" ,"help");
-            // Intent intent = new Intent(this, addItem.class);
-            // intent.putExtra(BARCODE_MESSAGE, barcode);
-            // startActivity(intent);
+            Intent intent = new Intent(this, AddItemActivity.class);
+            intent.putExtra(BARCODE_MESSAGE, barcodeArray);
+            startActivity(intent);
 
         } else {
             //ArrayList<String> niceStrings = new ArrayList<>();
