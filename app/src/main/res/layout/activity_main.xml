@@ -45,7 +45,7 @@
         android:layout_width="298dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:text="Hello"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="italic"

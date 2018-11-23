@@ -115,7 +115,7 @@ public class SearchResultsActivity extends AppCompatActivity {
             textView1.setTypeface(Typeface.DEFAULT_BOLD);
             textView2.setTypeface(Typeface.DEFAULT_BOLD);
             textView1.setText("Item Name");
-            textView2.setText("        " + "Bin Colour");
+            textView2.setText("     " + "Bin Colour");
             tableRow.addView(textView1);
             tableRow.addView(textView2);
             tableLayout.addView(tableRow);
@@ -127,7 +127,7 @@ public class SearchResultsActivity extends AppCompatActivity {
                 textView1.setTextSize(20);
                 textView2.setTextSize(20);
                 textView1.setText(obj.getString("itemName"));
-                textView2.setText("              " + obj.getString("binColour"));
+                textView2.setText("         " + obj.getString("binColour"));
                 tableRow.addView(textView1);
                 tableRow.addView(textView2);
                 tableLayout.addView(tableRow);
