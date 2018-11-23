@@ -48,6 +48,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             queryString = intent.getStringExtra(SearchManager.QUERY);
             queryString = queryString.replaceAll("[^a-zA-Z0-9]", "");
+            queryString = queryString.toLowerCase();
             //Toast.makeText(getApplicationContext(),queryString,Toast.LENGTH_SHORT).show();
             tableLayout = (TableLayout) findViewById(R.id.tableLayout);
             downloadJSON(albertServer + phpString + txtPHPvarName + '"' + queryString+ '"');
@@ -98,11 +99,11 @@ public class SearchResultsActivity extends AppCompatActivity {
 
     public void processResult(String json) throws JSONException {
 
-        if (json.equals("[]") || json == null || json == "") {
-            Log.d("error" ,"help");
-            Toast.makeText(getApplicationContext(), "Not found :(", Toast.LENGTH_SHORT).show();
-
-        } else {
+//        if (json.equals("[]") || json == null || json == "") {
+//            Log.d("error" ,"help");
+//            Toast.makeText(getApplicationContext(), "Not found :(", Toast.LENGTH_SHORT).show();
+//
+//        } else {
             //ArrayList<String> niceStrings = new ArrayList<>();
             Log.d("error" ,"else");
             JSONArray jsonArray = new JSONArray(json);
@@ -119,7 +120,7 @@ public class SearchResultsActivity extends AppCompatActivity {
             tableRow.addView(textView1);
             tableRow.addView(textView2);
             tableLayout.addView(tableRow);
-            for (int i = 0; i < jsonArray.length(); i++) {
+            for (int i = 0; i < jsonArray.length() && i <8; i++) {
                 tableRow = new TableRow(this);
                 textView1 = new TextView(this);
                 textView2 = new TextView(this);
@@ -135,5 +136,5 @@ public class SearchResultsActivity extends AppCompatActivity {
 //            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemList);
 //            tableLayout.setAdapter(arrayAdapter);
         }
-    }
+//    }
 }
