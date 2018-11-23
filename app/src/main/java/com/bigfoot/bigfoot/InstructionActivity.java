@@ -29,14 +29,12 @@ public class InstructionActivity extends AppCompatActivity{
         Button button = (Button) findViewById(R.id.nextButton);
         TextView instr1 = (TextView) findViewById(R.id.inst1);
         TextView instr2 = (TextView) findViewById(R.id.inst2);
-        TextView instr3 = (TextView) findViewById(R.id.inst3);
-        TextView instr4 = (TextView) findViewById(R.id.inst4);
+        //TextView instr3 = (TextView) findViewById(R.id.inst3);
+        //TextView instr4 = (TextView) findViewById(R.id.inst4);
 
 
         instr1.setText(getInstr1());
-        instr2.setText(getInstr2());
-        instr3.setText(getInstr3());
-        instr4.setText(getInstr4());
+        instr2.setText(getInstr2()+" " + getInstr3()+ " " +getInstr4());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

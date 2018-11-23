@@ -33,31 +33,15 @@
         android:textSize="30sp"
         android:layout_below="@+id/inst1"
         android:id="@+id/inst2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:layout_below="@+id/inst2"
-        android:id="@+id/inst3"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:layout_below="@+id/inst3"
-        android:id="@+id/inst4"/>
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/inst4"
+        android:layout_below="@+id/inst2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:text="Next"
         android:textSize="20sp" />
 
