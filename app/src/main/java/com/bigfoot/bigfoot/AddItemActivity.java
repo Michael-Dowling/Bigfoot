@@ -37,6 +37,7 @@ public class AddItemActivity extends AppCompatActivity {
         long barcode = resultsFromScan[0];
 
         barcodeNumber = findViewById(R.id.barcodeNumber);
+        barcodeNumber.setText(String.format(Long.toString(barcode)));
         itemName = (EditText)findViewById(R.id.itemName);
         recType = (EditText)findViewById(R.id.recType);
         binClr = (EditText)findViewById(R.id.BinColour);
